@@ -445,6 +445,172 @@ tbody tr:hover { background: var(--color-gray-10); }
   margin-left: var(--space-6);
 }
 
+/* === MOA Section (Mechanism of Action Redesign) === */
+.moa-callout {
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-left: 4px solid var(--color-primary);
+  padding: var(--space-5) var(--space-6);
+  margin-bottom: var(--space-7);
+}
+
+.moa-callout__badge {
+  display: inline-block;
+  background: var(--color-primary);
+  color: var(--color-white);
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  padding: 3px 10px;
+  margin-bottom: var(--space-3);
+}
+
+.moa-callout__text {
+  font-size: 1.0625rem;
+  font-weight: 400;
+  color: var(--color-midnight);
+  line-height: 1.7;
+  margin: 0;
+  max-width: 72ch;
+}
+.moa-callout__text strong {
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
+.moa-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-7);
+  align-items: start;
+}
+
+.moa-steps {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+.moa-step {
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  padding: var(--space-5) var(--space-6);
+  position: relative;
+  transition: border-color 0.2s;
+}
+.moa-step::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+}
+.moa-step[data-step="1"]::before { background: #E8A838; }
+.moa-step[data-step="2"]::before { background: #6F6FA0; }
+.moa-step[data-step="3"]::before { background: var(--color-danger); }
+
+.moa-step:hover {
+  border-color: var(--color-gray-30);
+}
+
+.moa-step__header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-bottom: var(--space-3);
+}
+
+.moa-step__num {
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--color-midnight);
+}
+
+.moa-step__badge {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  padding: 2px 8px;
+  letter-spacing: 0.02em;
+}
+.moa-step__badge--binding { background: #FFE8CC; color: #7A5000; }
+.moa-step__badge--nuclear { background: #E8E8FF; color: #4A4A80; }
+.moa-step__badge--transcription { background: #FFD7D9; color: #750E13; }
+
+.moa-step__title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-midnight);
+  margin-bottom: var(--space-2);
+}
+
+.moa-step__desc {
+  font-size: 0.8125rem;
+  color: var(--color-gray-80);
+  line-height: 1.65;
+  margin: 0;
+}
+
+/* MOA Diagram */
+.moa-diagram {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.moa-svg {
+  width: 100%;
+  max-width: 420px;
+  height: auto;
+}
+
+/* MOA Summary */
+.moa-summary {
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  padding: var(--space-4) var(--space-5);
+}
+
+.moa-summary__en {
+  font-size: 0.875rem;
+  color: var(--color-gray-80);
+  line-height: 1.6;
+  margin: 0;
+  font-style: italic;
+}
+.moa-summary__en strong {
+  color: var(--color-primary);
+  font-style: normal;
+}
+
+/* MOA Responsive */
+@media (max-width: 1024px) {
+  .moa-grid {
+    grid-template-columns: 1fr;
+  }
+  .moa-diagram {
+    order: -1;
+  }
+}
+
+@media (max-width: 768px) {
+  .moa-callout {
+    padding: var(--space-4) var(--space-5);
+  }
+  .moa-callout__text {
+    font-size: 0.9375rem;
+  }
+  .moa-step {
+    padding: var(--space-4) var(--space-5);
+  }
+  .moa-step__header {
+    flex-wrap: wrap;
+  }
+}
+
+
 /* === Gap Analysis Section === */
 .gap-conclusion {
   background: var(--color-gray-10);
