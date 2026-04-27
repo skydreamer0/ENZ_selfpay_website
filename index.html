@@ -93,62 +93,121 @@
   </div>
 </section>
 
-<!-- ======== SECTION 3: Treatment Pathway ======== -->
+<!-- ======== SECTION 3: Gap Analysis ======== -->
 <section class="section" id="pathway">
   <div class="container">
-    <p class="section__label">Treatment Pathway</p>
-    <h2>NCCN 建議 vs 健保現狀</h2>
-    <p>不同疾病階段的治療路徑存在結構性落差。點擊查看各階段詳細比較。</p>
-    <div class="grid-2 mt-5">
-      <!-- NCCN Track -->
-      <div>
-        <h3 class="mb-4" style="color:var(--color-primary);">NCCN 指引路徑</h3>
-        <div class="flowchart">
-          <div class="flow-node">
-            <div class="card__label">mCSPC — 所有體積</div>
-            <strong>ADT + Enzalutamide (ARPI)</strong>
-            <p class="text-sm mt-2">Category 1 推薦，無論高或低體積皆應強化治療</p>
-          </div>
-          <div class="flow-connector"></div>
-          <div class="flow-node">
-            <div class="card__label">nmCRPC — PSADT ≤ 10 個月</div>
-            <strong>加入 ARPI 延緩遠端轉移</strong>
-            <p class="text-sm mt-2">儘早介入，顯著推遲轉移發生</p>
-          </div>
-          <div class="flow-connector"></div>
-          <div class="flow-node flow-node--green">
-            <div class="card__label">Early BCR — 高風險</div>
-            <strong>Enzalutamide + ADT</strong>
-            <p class="text-sm mt-2">EMBARK 證實 MFS 顯著改善 (HR=0.42)</p>
-          </div>
-        </div>
-      </div>
-      <!-- NHI Track -->
-      <div>
-        <h3 class="mb-4" style="color:var(--color-gold);">台灣健保給付路徑</h3>
-        <div class="flowchart">
-          <div class="flow-node flow-node--gold">
-            <div class="card__label">mCSPC — 僅高風險</div>
-            <strong>需符合內臟轉移或多處骨轉移</strong>
-            <p class="text-sm mt-2">低體積患者不在給付範圍</p>
-          </div>
-          <div class="flow-connector"></div>
-          <div class="flow-node flow-node--gold">
-            <div class="card__label">nmCRPC — 需事前審查</div>
-            <strong>PSADT ≤ 10 個月 + 行政審查</strong>
-            <p class="text-sm mt-2">且不可與其他 ARPI 輪替</p>
-          </div>
-          <div class="flow-connector"></div>
-          <div class="flow-node flow-node--red">
-            <div class="card__label">Early BCR</div>
-            <strong>目前尚無健保給付</strong>
-            <p class="text-sm mt-2">醫師僅能建議觀察等待</p>
-          </div>
-        </div>
-      </div>
+    <p class="section__label">Gap Analysis</p>
+    <h2>國際指引與台灣健保給付落差：自費討論族群辨識</h2>
+    <p>當 NCCN 已建議早期 ARPI 強化治療，但台灣健保尚未完全涵蓋時，可形成醫師與病人共同決策的自費討論空間。</p>
+
+    <!-- Key Conclusion Callout -->
+    <div class="gap-conclusion">
+      <p class="gap-conclusion__text">
+        核心觀點：不是單純比較 NCCN 與健保，而是幫醫師快速找出<em>「國際證據支持、但台灣給付尚未涵蓋」</em>的自費病人族群。
+      </p>
     </div>
+
+    <!-- 4-Column Gap Table -->
+    <div class="table-wrap">
+      <table class="gap-table" id="gapTable">
+        <thead>
+          <tr>
+            <th>疾病階段</th>
+            <th><span class="th-icon th-icon--blue"></span>NCCN / 國際治療方向</th>
+            <th><span class="th-icon th-icon--gold"></span>台灣健保現況</th>
+            <th><span class="th-icon th-icon--red"></span>自費討論機會</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Row 1: mCSPC Low Volume -->
+          <tr>
+            <td data-label="疾病階段">
+              <div class="gap-stage">
+                <span class="gap-stage__num">Stage 01</span>
+                mCSPC<br>低體積
+              </div>
+            </td>
+            <td data-label="NCCN / 國際治療方向">
+              <div class="gap-cell__title">ADT + ARPI 強化治療</div>
+              <p class="gap-cell__desc">NCCN Category 1 推薦。ARCHES 試驗顯示無論高體積或低體積，早期加入 Enzalutamide 皆帶來顯著 rPFS 獲益。</p>
+            </td>
+            <td data-label="台灣健保現況">
+              <div class="gap-cell__title">多集中於高風險條件</div>
+              <p class="gap-cell__desc">健保給付需符合內臟轉移或多處骨轉移條件。<strong style="color:var(--color-gold);font-weight:600;">低體積患者不在給付範圍。</strong></p>
+            </td>
+            <td data-label="自費討論機會">
+              <div class="gap-opportunity">
+                <div class="gap-opportunity__tag">給付缺口</div>
+                <p class="gap-opportunity__text">低體積但希望早期強化治療的患者。<strong>國際指引支持強化治療，但健保可能不符合給付條件 → 可討論自費 ARPI。</strong></p>
+              </div>
+            </td>
+          </tr>
+          <!-- Row 2: nmCRPC -->
+          <tr>
+            <td data-label="疾病階段">
+              <div class="gap-stage">
+                <span class="gap-stage__num">Stage 02</span>
+                nmCRPC
+              </div>
+            </td>
+            <td data-label="NCCN / 國際治療方向">
+              <div class="gap-cell__title">PSADT ≤ 10 個月可加入 ARPI</div>
+              <p class="gap-cell__desc">儘早介入延緩遠端轉移發生。PROSPER 試驗支持 Enzalutamide 在 nmCRPC 的顯著 MFS 改善。</p>
+            </td>
+            <td data-label="台灣健保現況">
+              <div class="gap-cell__title">PSADT ≤ 10 個月 + 行政審查</div>
+              <p class="gap-cell__desc">需事前審查，且<strong style="color:var(--color-gold);font-weight:600;">不可與其他 ARPI 輪替</strong>。行政流程可能延遲治療啟動時機。</p>
+            </td>
+            <td data-label="自費討論機會">
+              <div class="gap-opportunity">
+                <div class="gap-opportunity__tag">需謹慎規劃</div>
+                <p class="gap-opportunity__text">給付前評估期間，需考慮自費先行啟動治療。<strong>後續治療戰略須提前規劃，避免觸碰「不可輪替」條款。</strong></p>
+              </div>
+            </td>
+          </tr>
+          <!-- Row 3: Early BCR (Highlight) -->
+          <tr class="gap-row--highlight">
+            <td data-label="疾病階段">
+              <div class="gap-stage">
+                <span class="gap-stage__num">Stage 03</span>
+                Early BCR<br>高風險
+              </div>
+            </td>
+            <td data-label="NCCN / 國際治療方向">
+              <div class="gap-cell__title">Enzalutamide + ADT 改善 MFS</div>
+              <p class="gap-cell__desc">EMBARK 試驗：PSADT ≤ 9 個月之高風險 BCR 患者，Enzalutamide + ADT 降低轉移或死亡風險達 58%（HR=0.42）。2025 更新 OS 數據同樣正向（HR=0.60）。</p>
+            </td>
+            <td data-label="台灣健保現況">
+              <div class="gap-cell__title">目前尚無明確給付</div>
+              <p class="gap-cell__desc">台灣健保對 Early BCR 階段的 ARPI 使用<strong style="color:var(--color-danger);font-weight:600;">目前無對應給付規範</strong>。醫師僅能建議觀察等待。</p>
+            </td>
+            <td data-label="自費討論機會">
+              <div class="gap-opportunity">
+                <div class="gap-opportunity__tag gap-opportunity__tag--max">▲ 最大缺口族群</div>
+                <p class="gap-opportunity__text"><strong>最值得建立門診篩選流程的自費討論族群。</strong>高風險 BCR 患者（PSADT ≤ 9 個月）有強力國際證據支持，適合作為自費早期強化治療的優先討論對象。</p>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Color Legend -->
+    <div class="gap-legend">
+      <div class="gap-legend__item"><span class="gap-legend__dot gap-legend__dot--blue"></span>國際指引支持</div>
+      <div class="gap-legend__item"><span class="gap-legend__dot gap-legend__dot--gold"></span>台灣健保可給付（有條件）</div>
+      <div class="gap-legend__item"><span class="gap-legend__dot gap-legend__dot--red"></span>給付缺口 / 自費討論空間</div>
+      <div class="gap-legend__item"><span class="gap-legend__dot gap-legend__dot--gray"></span>尚未成熟或僅供觀察</div>
+    </div>
+
+    <!-- Bottom Summary + CTA -->
+    <div class="gap-summary">
+      <p class="gap-summary__text">重點結論：Early BCR 與低體積 mCSPC 是目前最值得辨識的自費討論族群。</p>
+      <p class="gap-summary__sub">當國際證據已明確支持早期強化治療，但健保給付條件尚未涵蓋時，醫師可透過門診篩選流程主動辨識這些患者，進行自費共同決策。</p>
+    </div>
+
     <div class="mt-6">
-      <a href="pathway.html" class="btn btn--primary">查看完整治療路徑分析 <span class="btn__icon">→</span></a>
+      <a href="pathway.html" class="btn btn--primary">查看哪些病人適合討論自費早期強化治療 <span class="btn__icon">→</span></a>
     </div>
   </div>
 </section>
