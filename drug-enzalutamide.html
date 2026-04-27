@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Enzalutamide 學名藥物完整檔案：作用機轉、劑量、臨床試驗、安全性、適合病人族群與醫師常見問題。" />
+  <title>Enzalutamide 藥物檔案 — 前列腺癌臨床決策支援平台</title>
+  <script type="module" src="/src/main.js"></script>
+</head>
+<body>
+
+<header class="header"><div class="header__inner">
+  <a href="index.html" class="header__logo">PCa Evidence Hub</a>
+  <nav class="header__nav" id="mainNav">
+    <a href="index.html">首頁</a><a href="disease.html">疾病總覽</a><a href="pathway.html">治療路徑</a><a href="drug-enzalutamide.html">藥物檔案</a><a href="evidence.html">臨床證據</a><a href="faq.html">醫師 FAQ</a>
+  </nav>
+  <button class="header__hamburger" id="hamburgerBtn" aria-label="選單">☰</button>
+</div></header>
+
+<!-- Header -->
+<section class="section" style="padding-top:var(--space-7);padding-bottom:var(--space-6);">
+  <div class="container">
+    <p class="section__label">Generic Drug Profile</p>
+    <h1>Enzalutamide</h1>
+    <div class="flex gap-3 flex-wrap mt-3">
+      <span class="badge badge--blue">ARPI</span>
+      <span class="badge badge--blue">Androgen Receptor Pathway Inhibitor</span>
+      <span class="badge badge--green">NCCN Category 1</span>
+    </div>
+    <p class="text-lg mt-4">Enzalutamide 為一強效雄性素受體路徑抑制劑，具備三重阻斷機制，無需常規併用類固醇。NCCN 列為前列腺癌多個階段之 Category 1 推薦。</p>
+  </div>
+</section>
+
+<!-- MOA -->
+<section class="section section--gray">
+  <div class="container">
+    <h2>作用機轉 (Mechanism of Action)</h2>
+    <div class="grid-sidebar">
+      <div>
+        <p>Enzalutamide 透過三重機制全面阻斷雄性素受體 (AR) 訊號傳遞：</p>
+        <div class="flowchart mt-5">
+          <div class="flow-node"><strong>Step 1</strong><p class="text-sm mt-1">競爭性阻斷雄性素與 AR 結合</p></div>
+          <div class="flow-connector"></div>
+          <div class="flow-node"><strong>Step 2</strong><p class="text-sm mt-1">阻止 AR-配體複合物進入細胞核 (Nuclear Translocation)</p></div>
+          <div class="flow-connector"></div>
+          <div class="flow-node"><strong>Step 3</strong><p class="text-sm mt-1">阻斷 AR 與 DNA 結合及共活化因子的募集，抑制轉錄</p></div>
+        </div>
+      </div>
+      <div>
+        <!-- MOA Diagram SVG -->
+        <svg viewBox="0 0 360 360" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:360px;">
+          <!-- Cell membrane -->
+          <rect x="30" y="30" width="300" height="300" fill="#F4F4F4" stroke="#E0E0E0" stroke-width="1"/>
+          <text x="45" y="55" fill="#8D8D8D" font-family="IBM Plex Sans,sans-serif" font-size="10" font-weight="500">CELL</text>
+          <!-- Nucleus -->
+          <rect x="100" y="170" width="180" height="130" fill="#FFFFFF" stroke="#E0E0E0" stroke-width="1"/>
+          <text x="115" y="195" fill="#8D8D8D" font-family="IBM Plex Sans,sans-serif" font-size="10" font-weight="500">NUCLEUS</text>
+          <!-- AR receptor -->
+          <rect x="50" y="90" width="80" height="35" fill="#D0E2FF" stroke="#0F62FE" stroke-width="1"/>
+          <text x="60" y="112" fill="#002D9C" font-family="IBM Plex Sans,sans-serif" font-size="11" font-weight="600">AR</text>
+          <!-- Block 1 -->
+          <line x1="130" y1="107" x2="170" y2="107" stroke="#DA1E28" stroke-width="2"/>
+          <text x="135" y="100" fill="#DA1E28" font-family="IBM Plex Sans,sans-serif" font-size="9" font-weight="600">✕ 阻斷結合</text>
+          <!-- Arrow to nucleus -->
+          <line x1="90" y1="125" x2="90" y2="165" stroke="#393939" stroke-width="1" stroke-dasharray="4,3"/>
+          <!-- Block 2 -->
+          <text x="95" y="155" fill="#DA1E28" font-family="IBM Plex Sans,sans-serif" font-size="9" font-weight="600">✕ 阻斷入核</text>
+          <!-- DNA inside nucleus -->
+          <rect x="140" y="220" width="100" height="30" fill="#D0E2FF" stroke="#0F62FE" stroke-width="1"/>
+          <text x="158" y="240" fill="#002D9C" font-family="IBM Plex Sans,sans-serif" font-size="11" font-weight="600">DNA</text>
+          <!-- Block 3 -->
+          <text x="140" y="270" fill="#DA1E28" font-family="IBM Plex Sans,sans-serif" font-size="9" font-weight="600">✕ 阻斷轉錄</text>
+          <!-- Enzalutamide label -->
+          <rect x="200" y="80" width="110" height="30" fill="#0F62FE" stroke="none"/>
+          <text x="210" y="100" fill="#FFFFFF" font-family="IBM Plex Sans,sans-serif" font-size="10" font-weight="600">Enzalutamide</text>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Dosing -->
+<section class="section">
+  <div class="container">
+    <h2>劑量與療程</h2>
+    <div class="grid-3">
+      <div class="card card--bordered-top"><div class="card__label">標準劑量</div><div class="data-highlight">160 mg/day</div><p class="text-sm mt-2">四顆 40mg 膠囊/錠劑，每日一次</p></div>
+      <div class="card card--bordered-top"><div class="card__label">給藥方式</div><h4 class="card__title">口服</h4><p class="text-sm">隨餐或空腹皆可。無需合併 Prednisone。</p></div>
+      <div class="card card--bordered-top"><div class="card__label">療程</div><h4 class="card__title">持續給藥</h4><p class="text-sm">至疾病進展或無法耐受為止。EMBARK 研究中 85% 患者 PSA 測不到後可評估 Treatment Holiday。</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- Key Trials -->
+<section class="section section--gray">
+  <div class="container">
+    <h2>關鍵臨床試驗</h2>
+    <div class="accordion">
+      <div class="accordion__item open">
+        <button class="accordion__header">EMBARK — 高風險生化復發<span class="accordion__icon">▾</span></button>
+        <div class="accordion__body">
+          <div class="table-wrap">
+            <table>
+              <tbody>
+                <tr><td style="width:30%;font-weight:600;">Study Design</td><td>Phase 3, 隨機、雙盲、安慰劑對照</td></tr>
+                <tr><td style="font-weight:600;">Population</td><td>高風險 BCR 患者，PSADT ≤ 9 個月 (n=1,068)</td></tr>
+                <tr><td style="font-weight:600;">Intervention</td><td>Enzalutamide 160mg + Leuprolide vs Leuprolide alone</td></tr>
+                <tr><td style="font-weight:600;">Primary Endpoint</td><td>Metastasis-Free Survival (MFS)</td></tr>
+                <tr><td style="font-weight:600;">Key Efficacy</td><td><span class="text-mono" style="font-size:1.125rem;font-weight:600;color:var(--color-primary);">HR=0.42</span> (降低 58% 轉移或死亡風險)</td></tr>
+                <tr><td style="font-weight:600;">OS Update (2025)</td><td><span class="text-mono" style="font-size:1.125rem;font-weight:600;color:var(--color-primary);">HR=0.60</span> (具統計學意義 OS 改善)</td></tr>
+                <tr><td style="font-weight:600;">PSA Response</td><td>85% 患者達到 PSA 不可測 (Undetectable)</td></tr>
+                <tr><td style="font-weight:600;">Clinical Interpretation</td><td>打破傳統等待轉移的思維。在 PSA 快速上升階段即介入，可顯著延長無轉移存活期，並為 Treatment Holiday 創造可能。</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="accordion__item">
+        <button class="accordion__header">ARCHES — 轉移性去勢敏感性前列腺癌 (mCSPC)<span class="accordion__icon">▾</span></button>
+        <div class="accordion__body">
+          <div class="table-wrap">
+            <table>
+              <tbody>
+                <tr><td style="width:30%;font-weight:600;">Study Design</td><td>Phase 3, 隨機、雙盲</td></tr>
+                <tr><td style="font-weight:600;">Population</td><td>mCSPC 患者，包含高體積與低體積 (n=1,150)</td></tr>
+                <tr><td style="font-weight:600;">Intervention</td><td>Enzalutamide + ADT vs Placebo + ADT</td></tr>
+                <tr><td style="font-weight:600;">Primary Endpoint</td><td>Radiographic Progression-Free Survival (rPFS)</td></tr>
+                <tr><td style="font-weight:600;">Key Result</td><td>顯著改善 rPFS，無論高體積或低體積患者皆獲益</td></tr>
+                <tr><td style="font-weight:600;">Clinical Interpretation</td><td>支持所有 mCSPC 患者（無論體積）皆應接受強化治療。直接挑戰台灣健保僅給付高體積的限制。</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="accordion__item">
+        <button class="accordion__header">PREVAIL — 化療前 mCRPC<span class="accordion__icon">▾</span></button>
+        <div class="accordion__body">
+          <div class="table-wrap">
+            <table>
+              <tbody>
+                <tr><td style="width:30%;font-weight:600;">Study Design</td><td>Phase 3, 隨機、雙盲、安慰劑對照</td></tr>
+                <tr><td style="font-weight:600;">Population</td><td>化療前 mCRPC 患者 (n=1,717)</td></tr>
+                <tr><td style="font-weight:600;">Intervention</td><td>Enzalutamide 160mg vs Placebo</td></tr>
+                <tr><td style="font-weight:600;">Key Result</td><td>延緩化療起始時間中位數達 <span class="text-mono" style="font-weight:600;color:var(--color-primary);">28 個月</span></td></tr>
+                <tr><td style="font-weight:600;">Clinical Interpretation</td><td>對於排斥化療副作用的患者，提供了有尊嚴的存活期延長選項。特別適合 Chemo-Averse 族群。</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Safety -->
+<section class="section">
+  <div class="container">
+    <h2>安全性重點</h2>
+    <div class="grid-3">
+      <div class="card"><div class="card__label">常見不良反應</div><ul style="font-size:0.875rem;padding-left:1.25rem;line-height:2;"><li>疲勞 (Fatigue)</li><li>高血壓 (Hypertension)</li><li>熱潮紅 (Hot Flush)</li><li>關節痛 (Arthralgia)</li><li>食慾下降</li></ul></div>
+      <div class="card"><div class="card__label">嚴重不良反應與禁忌</div><ul style="font-size:0.875rem;padding-left:1.25rem;line-height:2;"><li>癲癇風險（罕見，&lt;1%）</li><li><strong>禁忌：</strong>具癲癇病史或正在使用降低癲癇閾值藥物者需謹慎</li><li>跌倒與骨折風險（高齡患者）</li></ul></div>
+      <div class="card card--bordered-top" style="border-top-color:var(--color-success);"><div class="card__label" style="color:var(--color-success);">臨床便利性</div><ul style="font-size:0.875rem;padding-left:1.25rem;line-height:2;"><li><strong>無需</strong>合併類固醇</li><li><strong>無需</strong>常規肝功能監測</li><li>口服給藥，無需空腹</li><li>適合糖尿病共病或高齡患者</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<!-- Patient Selection -->
+<section class="section section--gray">
+  <div class="container">
+    <h2>適合病人族群</h2>
+    <div class="grid-2">
+      <div class="card card--white card--bordered-top">
+        <h4 class="card__title">✓ 適合族群</h4>
+        <ul style="font-size:0.875rem;padding-left:1.25rem;line-height:2;">
+          <li><strong>生化復發且 PSADT ≤ 9 個月者</strong> — 掌握主動權，消除等待焦慮</li>
+          <li><strong>不願或不適合化療者</strong> — 延緩化療需求達 28 個月</li>
+          <li><strong>低體積 mCSPC 患者</strong> — NCCN 建議但健保不給付</li>
+          <li><strong>術前高風險者（探索性）</strong> — 追求極致 Pathological Response</li>
+          <li><strong>ADT 單藥治療下疾病惡化者</strong> — 需要強化治療</li>
+          <li><strong>對既有治療反應不佳者</strong> — 需要替代方案</li>
+        </ul>
+      </div>
+      <div class="card card--white" style="border-top:3px solid var(--color-danger);">
+        <h4 class="card__title">⚠ 需謹慎或不適合族群</h4>
+        <ul style="font-size:0.875rem;padding-left:1.25rem;line-height:2;">
+          <li><strong>癲癇病史者</strong> — 禁忌，需審慎評估</li>
+          <li><strong>高跌倒風險的虛弱高齡者</strong> — 需監測跌倒與骨折</li>
+          <li><strong>正在使用會降低癲癇閾值藥物者</strong> — 需調整或避免併用</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Clinical Scenarios -->
+<section class="section">
+  <div class="container">
+    <h2>實際臨床使用建議</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>病人情境</th><th>可考慮原因</th><th>注意事項</th></tr></thead>
+        <tbody>
+          <tr><td>PSA 快速上升 (PSADT ≤ 9 個月)，影像學陰性</td><td>EMBARK 證實 MFS 顯著改善 (HR=0.42)；OS 改善 (HR=0.60)</td><td>健保無給付，需自費；向患者說明主動防禦的價值</td></tr>
+          <tr><td>低體積 mCSPC</td><td>ARCHES 證實無論體積皆獲益；NCCN Category 1</td><td>健保僅給付高體積；強調回歸國際標準</td></tr>
+          <tr><td>排斥化療的 mCRPC 患者</td><td>PREVAIL 延緩化療 28 個月；維持生活品質</td><td>若已用 Abiraterone，需說明交叉抗藥性風險</td></tr>
+          <tr><td>Abiraterone 效果不佳</td><td>三重阻斷機制與 CYP17 抑制不同；仍可能獲益</td><td>健保禁止輪替，需自費；溝通期望值管理</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<footer class="footer"><div class="container"><p>© 2025 PCa Evidence Hub. 僅供醫療專業人員臨床參考。</p></div></footer>
+</body>
+</html>

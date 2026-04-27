@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="前列腺癌治療路徑：NCCN 指引建議與台灣健保給付條件的雙軌比較分析。" />
+  <title>治療路徑 — 前列腺癌臨床決策支援平台</title>
+  <script type="module" src="/src/main.js"></script>
+</head>
+<body>
+
+<header class="header"><div class="header__inner">
+  <a href="index.html" class="header__logo">PCa Evidence Hub</a>
+  <nav class="header__nav" id="mainNav">
+    <a href="index.html">首頁</a><a href="disease.html">疾病總覽</a><a href="pathway.html">治療路徑</a><a href="drug-enzalutamide.html">藥物檔案</a><a href="evidence.html">臨床證據</a><a href="faq.html">醫師 FAQ</a>
+  </nav>
+  <button class="header__hamburger" id="hamburgerBtn" aria-label="選單">☰</button>
+</div></header>
+
+<section class="section" style="padding-top:var(--space-7);">
+  <div class="container">
+    <p class="section__label">Treatment Pathway</p>
+    <h1>治療路徑：NCCN vs 台灣健保</h1>
+    <p class="text-lg">以下呈現四個關鍵臨床情境中，國際指引與台灣健保給付之間的結構性落差，以及自費早期介入的臨床依據。</p>
+  </div>
+</section>
+
+<!-- mCSPC -->
+<section class="section section--gray">
+  <div class="container">
+    <h2>情境一：轉移性去勢敏感性前列腺癌 (mCSPC)</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th style="width:25%;">面向</th><th style="width:37%;">NCCN 指引建議</th><th style="width:38%;">台灣健保給付</th></tr></thead>
+        <tbody>
+          <tr><td><strong>適用對象</strong></td><td>所有 mCSPC 患者（無論高/低體積）</td><td>僅高風險族群（內臟轉移或多處骨轉移）</td></tr>
+          <tr><td><strong>推薦治療</strong></td><td>ADT + Enzalutamide（Category 1）</td><td>ADT + ARPI（限高風險）</td></tr>
+          <tr><td><strong>推薦等級</strong></td><td>Category 1（最高等級實證）</td><td>依健保條件審核</td></tr>
+          <tr><td><strong>臨床落差</strong></td><td colspan="2"><span class="badge badge--gold">低體積 mCSPC 患者無法獲得健保給付，但 ARCHES 試驗證實其同樣獲益</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="card card--white mt-5" style="max-width:640px;border-left:3px solid var(--color-primary);">
+      <h4 class="card__title">自費切入點</h4>
+      <p class="card__text">對於低體積 mCSPC 患者，自費使用 Enzalutamide 進行強化治療，使其治療方案與 NCCN Category 1 建議一致，可顯著改善 rPFS。</p>
+    </div>
+  </div>
+</section>
+
+<!-- nmCRPC -->
+<section class="section">
+  <div class="container">
+    <h2>情境二：非轉移性去勢抗性前列腺癌 (nmCRPC)</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th style="width:25%;">面向</th><th style="width:37%;">NCCN 指引建議</th><th style="width:38%;">台灣健保給付</th></tr></thead>
+        <tbody>
+          <tr><td><strong>適用對象</strong></td><td>PSADT ≤ 10 個月之 nmCRPC</td><td>同左，但需事前審查</td></tr>
+          <tr><td><strong>推薦治療</strong></td><td>加入 Enzalutamide 延緩遠端轉移</td><td>加入 ARPI（經審查通過）</td></tr>
+          <tr><td><strong>用藥限制</strong></td><td>依臨床判斷彈性調整</td><td>不可與其他 ARPI 輪替</td></tr>
+          <tr><td><strong>臨床落差</strong></td><td colspan="2"><span class="badge badge--gold">行政審查延誤可能錯失治療窗口；不可輪替條款限制治療彈性</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="card card--white mt-5" style="max-width:640px;border-left:3px solid var(--color-primary);">
+      <h4 class="card__title">自費切入點</h4>
+      <p class="card__text">自費使用可繞過行政審查的延誤，確保在 PSADT 快速上升時即時介入。同時保留未來治療路徑的彈性。</p>
+    </div>
+  </div>
+</section>
+
+<!-- mCRPC -->
+<section class="section section--gray">
+  <div class="container">
+    <h2>情境三：轉移性去勢抗性前列腺癌 (mCRPC)</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th style="width:25%;">面向</th><th style="width:37%;">NCCN 指引建議</th><th style="width:38%;">台灣健保給付</th></tr></thead>
+        <tbody>
+          <tr><td><strong>適用對象</strong></td><td>mCRPC 患者（化療前或化療後）</td><td>嚴格限制，禁止 ARPI 輪替</td></tr>
+          <tr><td><strong>推薦治療</strong></td><td>依先前治療史選擇最佳方案</td><td>若已用 Abiraterone 則無法換用 Enzalutamide</td></tr>
+          <tr><td><strong>臨床落差</strong></td><td colspan="2"><span class="badge badge--red">「不可輪替」條款成為治療死胡同，排斥化療的患者可能面臨無藥可用</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="card card--white mt-5" style="max-width:640px;border-left:3px solid var(--color-primary);">
+      <h4 class="card__title">自費切入點</h4>
+      <p class="card__text">對於 Abiraterone 效果不佳且排斥化療的患者，自費換用 Enzalutamide 仍具潛在獲益。透過自費繞過輪替限制，延緩疾病惡化並維持生活品質。</p>
+    </div>
+  </div>
+</section>
+
+<!-- Early BCR -->
+<section class="section">
+  <div class="container">
+    <h2>情境四：高風險生化復發 (Early BCR)</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th style="width:25%;">面向</th><th style="width:37%;">NCCN 指引建議</th><th style="width:38%;">台灣健保給付</th></tr></thead>
+        <tbody>
+          <tr><td><strong>適用對象</strong></td><td>根治性治療後 PSA 復發，PSADT ≤ 9 個月</td><td>——</td></tr>
+          <tr><td><strong>推薦治療</strong></td><td>Enzalutamide + ADT（EMBARK 證據）</td><td>無給付</td></tr>
+          <tr><td><strong>關鍵數據</strong></td><td>MFS: HR=0.42；OS: HR=0.60</td><td>——</td></tr>
+          <tr><td><strong>臨床落差</strong></td><td colspan="2"><span class="badge badge--red">健保完全不給付此階段使用 ARPI，醫師僅能建議觀察等待</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="card card--white mt-5" style="max-width:640px;border-left:3px solid var(--color-success);">
+      <h4 class="card__title">自費切入點 — 最高價值情境</h4>
+      <p class="card__text">EMBARK 試驗提供最強實證基礎：在高風險 BCR 階段即介入 Enzalutamide，可降低轉移或死亡風險 58%，並改善總存活期。這是「掌握主動權，消除生化焦慮」的最佳時機。且 85% 患者在強化治療後 PSA 測不到，為「治療暫停 (Treatment Holiday)」創造可能。</p>
+    </div>
+  </div>
+</section>
+
+<section class="section section--gray">
+  <div class="container">
+    <h2>戰略摘要</h2>
+    <p>透過早期自費啟動 Enzalutamide，可達成以下臨床戰略目標：</p>
+    <div class="grid-3 mt-5">
+      <div class="card card--white card--bordered-top"><h4 class="card__title">回歸 NCCN 標準</h4><p class="card__text">使台灣患者的治療方案與國際最高標準一致。</p></div>
+      <div class="card card--white card--bordered-top"><h4 class="card__title">規避輪替限制</h4><p class="card__text">為患者保留未來使用其他健保資助療法的彈性空間。</p></div>
+      <div class="card card--white card--bordered-top"><h4 class="card__title">爭取治療窗口</h4><p class="card__text">在疾病早期即介入，極大化 MFS 與 OS 獲益。</p></div>
+    </div>
+    <div class="mt-6">
+      <a href="drug-enzalutamide.html" class="btn btn--primary">查看 Enzalutamide 完整檔案 <span class="btn__icon">→</span></a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer"><div class="container"><p>© 2025 PCa Evidence Hub. 僅供醫療專業人員臨床參考。</p></div></footer>
+</body>
+</html>

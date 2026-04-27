@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="前列腺癌疾病總覽：疾病負擔、診斷、分期與治療目標。基於 NCCN 臨床指引的系統性疾病概述。" />
+  <title>疾病總覽 — 前列腺癌臨床決策支援平台</title>
+  <script type="module" src="/src/main.js"></script>
+</head>
+<body>
+
+<header class="header"><div class="header__inner">
+  <a href="index.html" class="header__logo">PCa Evidence Hub</a>
+  <nav class="header__nav" id="mainNav">
+    <a href="index.html">首頁</a><a href="disease.html">疾病總覽</a><a href="pathway.html">治療路徑</a><a href="drug-enzalutamide.html">藥物檔案</a><a href="evidence.html">臨床證據</a><a href="faq.html">醫師 FAQ</a>
+  </nav>
+  <button class="header__hamburger" id="hamburgerBtn" aria-label="選單">☰</button>
+</div></header>
+
+<section class="section" style="padding-top:var(--space-7);">
+  <div class="container">
+    <p class="section__label">Disease Overview</p>
+    <h1>前列腺癌疾病總覽</h1>
+    <p class="text-lg">前列腺癌是全球男性第二常見的癌症。理解其疾病演進與分期，是制定最佳治療策略的基礎。</p>
+  </div>
+</section>
+
+<section class="section section--gray">
+  <div class="container">
+    <h2>疾病負擔</h2>
+    <div class="grid-3">
+      <div class="card card--white"><div class="stat"><div class="stat__value">第2位</div><div class="stat__label">全球男性癌症發生率排名</div></div></div>
+      <div class="card card--white"><div class="stat"><div class="stat__value">~38萬</div><div class="stat__label">全球年度死亡人數</div></div></div>
+      <div class="card card--white"><div class="stat"><div class="stat__value">5,000+</div><div class="stat__label">台灣年度新增病例</div></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2>疾病進程與分期</h2>
+    <p>前列腺癌是一個隨時間演進的疾病，從局部侷限到遠端轉移，每個階段的治療策略截然不同。</p>
+    <div class="timeline mt-6">
+      <div class="timeline__item">
+        <div class="timeline__dot"></div>
+        <h3>局部侷限性前列腺癌 (Localized PCa)</h3>
+        <p class="text-sm">腫瘤侷限於前列腺內。治療以根治性手術或放射治療為主。五年存活率接近 100%。</p>
+      </div>
+      <div class="timeline__item">
+        <div class="timeline__dot"></div>
+        <h3>生化復發 (Biochemical Recurrence, BCR)</h3>
+        <p class="text-sm">根治性治療後 PSA 重新上升，但影像學未見轉移。PSADT 是評估預後的關鍵指標。<br><span class="badge badge--gold mt-2" style="display:inline-block;">健保：目前無給付 ARPI</span></p>
+      </div>
+      <div class="timeline__item">
+        <div class="timeline__dot"></div>
+        <h3>轉移性去勢敏感性前列腺癌 (mCSPC)</h3>
+        <p class="text-sm">影像學確認遠端轉移，且對 ADT 仍有反應。NCCN 建議所有體積皆應接受強化治療（ADT + ARPI）。<br><span class="badge badge--gold mt-2" style="display:inline-block;">健保：僅給付高體積/高風險</span></p>
+      </div>
+      <div class="timeline__item">
+        <div class="timeline__dot"></div>
+        <h3>非轉移性去勢抗性前列腺癌 (nmCRPC)</h3>
+        <p class="text-sm">ADT 治療下 PSA 仍持續上升，但影像學未見轉移。PSADT ≤ 10 個月者應考慮加入 ARPI。<br><span class="badge badge--gold mt-2" style="display:inline-block;">健保：需事前審查，不可輪替</span></p>
+      </div>
+      <div class="timeline__item">
+        <div class="timeline__dot" style="background:var(--color-danger);"></div>
+        <h3>轉移性去勢抗性前列腺癌 (mCRPC)</h3>
+        <p class="text-sm">疾病在去勢狀態下持續惡化並出現轉移。治療選擇包括 ARPI、化療、核素治療等。<br><span class="badge badge--red mt-2" style="display:inline-block;">健保：禁止新型荷爾蒙藥物輪替</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--gray">
+  <div class="container">
+    <h2>當前臨床挑戰</h2>
+    <div class="grid-2">
+      <div class="card card--white">
+        <h3 class="card__title">治療不足 (Under-treatment)</h3>
+        <p class="card__text">NCCN 指引已明確指出單用 ADT 不再是 mCSPC 的標準治療，但受限於健保給付條件，許多符合國際指引標準的患者未能及時接受強化治療。</p>
+      </div>
+      <div class="card card--white">
+        <h3 class="card__title">延遲治療的代價</h3>
+        <p class="card__text">在疾病早期階段延遲使用 ARPI，可能錯失最佳控制窗口。微小轉移在 PSA 上升階段可能已經存在，等待影像學證實轉移意味著失去主動權。</p>
+      </div>
+      <div class="card card--white">
+        <h3 class="card__title">輪替限制的死胡同</h3>
+        <p class="card__text">健保「不可輪替」條款意味著一旦使用 Abiraterone，即無法換用 Enzalutamide。這迫使醫師必須在第一線就做出最佳戰略選擇。</p>
+      </div>
+      <div class="card card--white">
+        <h3 class="card__title">病人焦慮管理</h3>
+        <p class="card__text">PSA 數值上升但影像學正常的患者往往承受極大心理壓力。缺乏積極治療選項的「觀察等待」策略可能加重其焦慮感。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2>治療目標</h2>
+    <div class="grid-3">
+      <div class="card card--bordered-top"><h4 class="card__title">延緩疾病進展</h4><p class="card__text">在疾病早期階段即介入強化治療，最大化 Metastasis-Free Survival (MFS) 與 radiographic Progression-Free Survival (rPFS)。</p></div>
+      <div class="card card--bordered-top"><h4 class="card__title">延長總存活期</h4><p class="card__text">透過早期控制腫瘤生長，將 Overall Survival (OS) 的獲益最大化。EMBARK 2025 數據已證實 OS 改善 (HR=0.60)。</p></div>
+      <div class="card card--bordered-top"><h4 class="card__title">維持生活品質</h4><p class="card__text">選擇耐受性良好的治療方案，延緩化療需求，讓患者在較長時間內維持日常生活功能與尊嚴。</p></div>
+    </div>
+    <div class="mt-6">
+      <a href="pathway.html" class="btn btn--primary">查看治療路徑 <span class="btn__icon">→</span></a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer"><div class="container"><p>© 2025 PCa Evidence Hub. 僅供醫療專業人員臨床參考。</p></div></footer>
+</body>
+</html>

@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="基於 NCCN 指引的前列腺癌早期強化治療臨床決策支援平台，提供 Enzalutamide 臨床證據、病人選擇與治療路徑參考。" />
+  <title>前列腺癌臨床決策支援平台 — NCCN Evidence Hub</title>
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <script type="module" src="/src/main.js"></script>
+</head>
+<body>
+
+<!-- ======== HEADER ======== -->
+<header class="header" id="header">
+  <div class="header__inner">
+    <a href="index.html" class="header__logo">PCa Evidence Hub</a>
+    <nav class="header__nav" id="mainNav">
+      <a href="index.html" class="active">首頁</a>
+      <a href="disease.html">疾病總覽</a>
+      <a href="pathway.html">治療路徑</a>
+      <a href="drug-enzalutamide.html">藥物檔案</a>
+      <a href="evidence.html">臨床證據</a>
+      <a href="faq.html">醫師 FAQ</a>
+    </nav>
+    <button class="header__hamburger" id="hamburgerBtn" aria-label="選單">☰</button>
+  </div>
+</header>
+
+<!-- ======== HERO ======== -->
+<section class="hero" id="hero">
+  <div class="container">
+    <div class="hero__grid">
+      <div>
+        <p class="hero__label">NCCN Category 1 推薦</p>
+        <h1 class="hero__title">延緩疾病進展<br>優化存活期</h1>
+        <p class="hero__subtitle">基於 NCCN 臨床指引的前列腺癌早期強化治療策略。快速查閱 Enzalutamide 臨床證據、治療路徑與病人選擇參考。</p>
+        <div class="flex gap-3">
+          <a href="pathway.html" class="btn btn--primary">探索治療路徑 <span class="btn__icon">→</span></a>
+          <a href="evidence.html" class="btn btn--ghost">查看臨床證據</a>
+        </div>
+      </div>
+      <div>
+        <!-- Disease Progression Timeline SVG -->
+        <svg viewBox="0 0 480 320" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:480px;">
+          <!-- Axis -->
+          <line x1="50" y1="260" x2="460" y2="260" stroke="#E0E0E0" stroke-width="1"/>
+          <line x1="50" y1="260" x2="50" y2="40" stroke="#E0E0E0" stroke-width="1"/>
+          <!-- Axis labels -->
+          <text x="250" y="290" text-anchor="middle" fill="#8D8D8D" font-family="IBM Plex Sans,sans-serif" font-size="11" font-weight="500">疾病進程時間</text>
+          <text x="20" y="150" text-anchor="middle" fill="#8D8D8D" font-family="IBM Plex Sans,sans-serif" font-size="11" font-weight="500" transform="rotate(-90,20,150)">PSA 數值</text>
+          <!-- PSA Curve - rising -->
+          <path d="M60 240 Q120 238 160 230 Q200 220 230 200 Q260 175 290 140 Q320 100 350 70 Q380 50 420 45" stroke="#DA1E28" stroke-width="2" fill="none"/>
+          <!-- Early intervention line -->
+          <line x1="200" y1="50" x2="200" y2="260" stroke="#0F62FE" stroke-width="1" stroke-dasharray="4,4"/>
+          <text x="204" y="65" fill="#0F62FE" font-family="IBM Plex Sans,sans-serif" font-size="10" font-weight="600">早期介入時機</text>
+          <!-- Stage labels -->
+          <text x="100" y="278" fill="#393939" font-family="IBM Plex Sans,sans-serif" font-size="9">BCR</text>
+          <text x="190" y="278" fill="#393939" font-family="IBM Plex Sans,sans-serif" font-size="9">nmCRPC</text>
+          <text x="300" y="278" fill="#393939" font-family="IBM Plex Sans,sans-serif" font-size="9">mCRPC</text>
+          <text x="390" y="278" fill="#393939" font-family="IBM Plex Sans,sans-serif" font-size="9">晚期</text>
+          <!-- Treatment window box -->
+          <rect x="120" y="80" width="120" height="50" fill="#D0E2FF" fill-opacity="0.3" stroke="#0F62FE" stroke-width="1"/>
+          <text x="130" y="100" fill="#0F62FE" font-family="IBM Plex Sans,sans-serif" font-size="10" font-weight="600">NCCN 建議</text>
+          <text x="130" y="118" fill="#0F62FE" font-family="IBM Plex Sans,sans-serif" font-size="9">早期強化治療窗口</text>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======== SECTION 2: Clinical Challenge ======== -->
+<section class="section section--gray" id="challenge">
+  <div class="container">
+    <p class="section__label">Clinical Challenge</p>
+    <h2>跨越單藥治療的侷限</h2>
+    <div class="grid-3">
+      <div class="card card--white card--bordered-top">
+        <div class="card__label">挑戰 01</div>
+        <h3 class="card__title">ADT 抗藥性風險</h3>
+        <p class="card__text">單一 ADT 治療後，前列腺癌細胞可透過雄性素受體過度表現或突變發展為去勢抗性（CRPC），中位時間約 18-24 個月。</p>
+      </div>
+      <div class="card card--white card--bordered-top">
+        <div class="card__label">挑戰 02</div>
+        <h3 class="card__title">微小轉移的潛在威脅</h3>
+        <p class="card__text">在 PSA 上升但影像學尚未偵測到轉移的階段，微小轉移（Micrometastasis）可能已存在，延遲治療等同錯失控制窗口。</p>
+      </div>
+      <div class="card card--white card--gold">
+        <div class="card__label"><span class="badge badge--gold">健保限制</span></div>
+        <h3 class="card__title">NCCN 指引與健保給付的落差</h3>
+        <p class="card__text">NCCN 建議所有 mCSPC 患者應強化治療，但台灣健保僅給付高風險（如內臟轉移或多處骨轉移）族群，低體積患者需自費才能接受指引推薦方案。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======== SECTION 3: Treatment Pathway ======== -->
+<section class="section" id="pathway">
+  <div class="container">
+    <p class="section__label">Treatment Pathway</p>
+    <h2>NCCN 建議 vs 健保現狀</h2>
+    <p>不同疾病階段的治療路徑存在結構性落差。點擊查看各階段詳細比較。</p>
+    <div class="grid-2 mt-5">
+      <!-- NCCN Track -->
+      <div>
+        <h3 class="mb-4" style="color:var(--color-primary);">NCCN 指引路徑</h3>
+        <div class="flowchart">
+          <div class="flow-node">
+            <div class="card__label">mCSPC — 所有體積</div>
+            <strong>ADT + Enzalutamide (ARPI)</strong>
+            <p class="text-sm mt-2">Category 1 推薦，無論高或低體積皆應強化治療</p>
+          </div>
+          <div class="flow-connector"></div>
+          <div class="flow-node">
+            <div class="card__label">nmCRPC — PSADT ≤ 10 個月</div>
+            <strong>加入 ARPI 延緩遠端轉移</strong>
+            <p class="text-sm mt-2">儘早介入，顯著推遲轉移發生</p>
+          </div>
+          <div class="flow-connector"></div>
+          <div class="flow-node flow-node--green">
+            <div class="card__label">Early BCR — 高風險</div>
+            <strong>Enzalutamide + ADT</strong>
+            <p class="text-sm mt-2">EMBARK 證實 MFS 顯著改善 (HR=0.42)</p>
+          </div>
+        </div>
+      </div>
+      <!-- NHI Track -->
+      <div>
+        <h3 class="mb-4" style="color:var(--color-gold);">台灣健保給付路徑</h3>
+        <div class="flowchart">
+          <div class="flow-node flow-node--gold">
+            <div class="card__label">mCSPC — 僅高風險</div>
+            <strong>需符合內臟轉移或多處骨轉移</strong>
+            <p class="text-sm mt-2">低體積患者不在給付範圍</p>
+          </div>
+          <div class="flow-connector"></div>
+          <div class="flow-node flow-node--gold">
+            <div class="card__label">nmCRPC — 需事前審查</div>
+            <strong>PSADT ≤ 10 個月 + 行政審查</strong>
+            <p class="text-sm mt-2">且不可與其他 ARPI 輪替</p>
+          </div>
+          <div class="flow-connector"></div>
+          <div class="flow-node flow-node--red">
+            <div class="card__label">Early BCR</div>
+            <strong>目前尚無健保給付</strong>
+            <p class="text-sm mt-2">醫師僅能建議觀察等待</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="mt-6">
+      <a href="pathway.html" class="btn btn--primary">查看完整治療路徑分析 <span class="btn__icon">→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ======== SECTION 4: Drug Profile ======== -->
+<section class="section section--gray" id="drug">
+  <div class="container">
+    <p class="section__label">Generic Drug Profile</p>
+    <h2>ARPI 治療定位：Enzalutamide</h2>
+    <div class="grid-sidebar">
+      <div>
+        <div class="card card--white card--bordered-top">
+          <div class="card__label">藥理分類</div>
+          <h4>Androgen Receptor Pathway Inhibitor</h4>
+          <p class="text-sm mt-3">三重阻斷機制：</p>
+          <ul style="font-size:0.875rem;padding-left:1.25rem;margin-top:8px;line-height:1.8;">
+            <li>阻斷雄性素與 AR 結合</li>
+            <li>阻止 AR 進入細胞核</li>
+            <li>阻斷 DNA 結合與轉錄</li>
+          </ul>
+          <div class="mt-4">
+            <span class="badge badge--blue">無需合併類固醇</span>
+          </div>
+        </div>
+        <div class="mt-4">
+          <a href="drug-enzalutamide.html" class="btn btn--primary">查看完整藥物檔案 <span class="btn__icon">→</span></a>
+        </div>
+      </div>
+      <div>
+        <div class="grid-2">
+          <div class="card card--white">
+            <div class="card__label">劑量</div>
+            <div class="data-highlight">160mg</div>
+            <p class="text-sm mt-2">每日一次口服，隨餐或空腹皆可</p>
+          </div>
+          <div class="card card--white">
+            <div class="card__label">NCCN 推薦等級</div>
+            <div class="data-highlight">Cat. 1</div>
+            <p class="text-sm mt-2">最高等級實證推薦</p>
+          </div>
+          <div class="card card--white">
+            <div class="card__label">適應症階段</div>
+            <div style="font-size:0.875rem;margin-top:8px;">
+              <span class="badge badge--blue" style="margin:2px;">mCSPC</span>
+              <span class="badge badge--blue" style="margin:2px;">nmCRPC</span>
+              <span class="badge badge--blue" style="margin:2px;">mCRPC</span>
+              <span class="badge badge--green" style="margin:2px;">Early BCR</span>
+            </div>
+          </div>
+          <div class="card card--white">
+            <div class="card__label">臨床優勢</div>
+            <p class="text-sm mt-2">無需常規肝功能監測；無需合併 Prednisone；口服給藥便利性高</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======== SECTION 5: Key Evidence ======== -->
+<section class="section" id="evidence">
+  <div class="container">
+    <p class="section__label">Key Evidence</p>
+    <h2>改變指引的關鍵數據</h2>
+    <div class="grid-3">
+      <!-- EMBARK -->
+      <div class="card card--bordered-top">
+        <div class="card__label">Phase 3 Trial</div>
+        <h3 class="card__title">EMBARK</h3>
+        <p class="text-sm" style="color:var(--color-gray-50);">高風險生化復發 (PSADT ≤ 9 個月)</p>
+        <div class="mt-4">
+          <div class="stat">
+            <div class="stat__value">HR 0.42</div>
+            <div class="stat__label">Metastasis-Free Survival</div>
+            <p class="stat__detail">降低轉移或死亡風險達 58%</p>
+          </div>
+        </div>
+        <div class="mt-4">
+          <div class="stat">
+            <div class="stat__value" style="font-size:1.75rem;">HR 0.60</div>
+            <div class="stat__label">Overall Survival</div>
+            <p class="stat__detail">2025 更新數據顯示 OS 具統計學意義改善</p>
+          </div>
+        </div>
+      </div>
+      <!-- ARCHES -->
+      <div class="card card--bordered-top">
+        <div class="card__label">Phase 3 Trial</div>
+        <h3 class="card__title">ARCHES</h3>
+        <p class="text-sm" style="color:var(--color-gray-50);">mCSPC（所有體積）</p>
+        <div class="mt-4">
+          <div class="stat">
+            <div class="stat__value">rPFS</div>
+            <div class="stat__label">顯著改善</div>
+            <p class="stat__detail">無論高體積或低體積患者，早期加入 Enzalutamide 皆帶來顯著 rPFS 獲益</p>
+          </div>
+        </div>
+        <div class="mt-4">
+          <span class="badge badge--blue">支持所有體積強化治療</span>
+        </div>
+      </div>
+      <!-- PREVAIL -->
+      <div class="card card--bordered-top">
+        <div class="card__label">Phase 3 Trial</div>
+        <h3 class="card__title">PREVAIL</h3>
+        <p class="text-sm" style="color:var(--color-gray-50);">化療前 mCRPC</p>
+        <div class="mt-4">
+          <div class="stat">
+            <div class="stat__value">28 mo</div>
+            <div class="stat__label">延緩化療起始時間</div>
+            <p class="stat__detail">中位數延緩 28 個月，適合不願或不適合化療的患者</p>
+          </div>
+        </div>
+        <div class="mt-4">
+          <span class="badge badge--green">適合 Chemo-Averse 族群</span>
+        </div>
+      </div>
+    </div>
+    <div class="mt-6">
+      <a href="evidence.html" class="btn btn--primary">查看完整臨床證據庫 <span class="btn__icon">→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ======== SECTION 6: Patient Selection ======== -->
+<section class="section section--gray" id="patients">
+  <div class="container">
+    <p class="section__label">Patient Selection</p>
+    <h2>辨識高獲益族群</h2>
+    <div class="grid-4">
+      <div class="card card--white card--bordered-top">
+        <div class="card__label">族群 A</div>
+        <h4 class="card__title">生化復發且高度焦慮</h4>
+        <p class="card__text">PSA 上升但影像學未見轉移。PSADT ≤ 9 個月。</p>
+        <p class="text-sm mt-3" style="color:var(--color-primary);font-weight:500;">→ EMBARK 證據支持</p>
+      </div>
+      <div class="card card--white card--bordered-top">
+        <div class="card__label">族群 B</div>
+        <h4 class="card__title">不願接受化療</h4>
+        <p class="card__text">已用過 Abiraterone 或排斥化療副作用。需維持生活品質。</p>
+        <p class="text-sm mt-3" style="color:var(--color-primary);font-weight:500;">→ PREVAIL 證據支持</p>
+      </div>
+      <div class="card card--white card--bordered-top">
+        <div class="card__label">族群 C</div>
+        <h4 class="card__title">低體積 mCSPC</h4>
+        <p class="card__text">NCCN 建議強化治療，但健保僅給付高體積。</p>
+        <p class="text-sm mt-3" style="color:var(--color-primary);font-weight:500;">→ ARCHES 證據支持</p>
+      </div>
+      <div class="card card--white card--bordered-top">
+        <div class="card__label">族群 D</div>
+        <h4 class="card__title">術前高風險</h4>
+        <p class="card__text">追求極致降階 (Pathological Response)，縮小腫瘤體積。</p>
+        <p class="text-sm mt-3" style="color:var(--color-gold);font-weight:500;">→ 探索性適應症</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======== SECTION 7: FAQ ======== -->
+<section class="section" id="faq">
+  <div class="container">
+    <p class="section__label">Clinician FAQ</p>
+    <h2>醫師常見臨床問題</h2>
+    <div class="accordion" style="max-width:800px;">
+      <div class="accordion__item open">
+        <button class="accordion__header">
+          為何建議在影像學轉移前就使用 ARPI？
+          <span class="accordion__icon">▾</span>
+        </button>
+        <div class="accordion__body">
+          <p>根據 EMBARK 數據，在 PSA 快速上升階段（PSADT ≤ 9 個月）即介入 Enzalutamide，可降低轉移或死亡風險達 58%（HR=0.42）。2025 年更新數據進一步顯示 OS 改善（HR=0.60）。在 PSA 上升但影像學未見轉移的階段即介入，可極大化無轉移存活期（MFS），為患者爭取潛在的治療暫停機會。</p>
+        </div>
+      </div>
+      <div class="accordion__item">
+        <button class="accordion__header">
+          已使用過 Abiraterone，自費換用 Enzalutamide 是否有效？
+          <span class="accordion__icon">▾</span>
+        </button>
+        <div class="accordion__body">
+          <p>ARPI 之間確實存在交叉抗藥性，這是因為兩者皆作用於雄性素受體路徑。但 Enzalutamide 的三重阻斷機制與 Abiraterone 的 CYP17 抑制機轉不同。對於排斥化療的患者，自費換用仍可視為延緩疾病進展的選項，但需與患者充分溝通期望值與可能的獲益幅度。</p>
+        </div>
+      </div>
+      <div class="accordion__item">
+        <button class="accordion__header">
+          自費提早使用是否影響後續健保給付資格？
+          <span class="accordion__icon">▾</span>
+        </button>
+        <div class="accordion__body">
+          <p>在目前健保規定下，「不可輪替」條款限制了不同 ARPI 間的序貫使用。因此，透過早期自費啟動 Enzalutamide，可規避未來健保「不可輪替」的限制，為患者保留疾病惡化時使用其他健保資助療法的彈性空間。建議在啟動自費方案前與患者討論長期治療戰略。</p>
+        </div>
+      </div>
+      <div class="accordion__item">
+        <button class="accordion__header">
+          Enzalutamide 與 Abiraterone 相比有哪些臨床便利性差異？
+          <span class="accordion__icon">▾</span>
+        </button>
+        <div class="accordion__body">
+          <p>Enzalutamide 無需常規併用類固醇（Prednisone），減少了代謝、免疫抑制等類固醇相關副作用的風險。此外，Enzalutamide 不需要常規肝功能監測。對於糖尿病共病或高齡患者，這些特性具有臨床便利性上的優勢。</p>
+        </div>
+      </div>
+      <div class="accordion__item">
+        <button class="accordion__header">
+          如何向病人解釋自費早期介入的理由？
+          <span class="accordion__icon">▾</span>
+        </button>
+        <div class="accordion__body">
+          <p>建議溝通方式：「根據最新的國際標準，我們現在的做法是不等癌細胞擴散，在指數剛上升時就加入這款口服藥。雖然目前健保還沒給付這個階段，但提早用藥可以把擴散的風險降低一半。這是一種主動防禦策略，而不是被動等待。」</p>
+        </div>
+      </div>
+    </div>
+    <div class="mt-6">
+      <a href="faq.html" class="btn btn--ghost">查看更多臨床問題 →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ======== SECTION 8: References ======== -->
+<section class="section section--gray" id="references">
+  <div class="container">
+    <p class="section__label">References</p>
+    <h2>參考文獻</h2>
+    <ol style="font-size:0.8125rem;line-height:2;color:var(--color-gray-80);padding-left:1.5rem;max-width:72ch;">
+      <li>NCCN Clinical Practice Guidelines in Oncology: Prostate Cancer. Version 4.2025.</li>
+      <li>Freedland SJ, et al. Enzalutamide and metastasis-free survival in biochemical recurrence: EMBARK trial. <em>N Engl J Med</em>. 2023;389(16):1453-1465.</li>
+      <li>Armstrong AJ, et al. ARCHES: Enzalutamide plus ADT in metastatic castration-sensitive prostate cancer. <em>J Clin Oncol</em>. 2019;37(32):2974-2986.</li>
+      <li>Beer TM, et al. Enzalutamide in metastatic prostate cancer before chemotherapy: PREVAIL trial. <em>N Engl J Med</em>. 2014;371(5):424-433.</li>
+      <li>Hussain M, et al. Enzalutamide in non-metastatic CRPC: PROSPER trial. <em>N Engl J Med</em>. 2018;378(26):2465-2474.</li>
+    </ol>
+    <p class="text-xs mt-5" style="color:var(--color-gray-50);">本網站內容僅供醫療專業人員臨床參考，不構成處方建議。所有治療決策應基於個別患者情況與醫師專業判斷。</p>
+  </div>
+</section>
+
+<!-- ======== FOOTER ======== -->
+<footer class="footer">
+  <div class="container">
+    <div class="grid-2" style="align-items:center;">
+      <div>
+        <p style="font-weight:600;color:var(--color-white);margin-bottom:4px;">PCa Evidence Hub</p>
+        <p style="margin:0;">前列腺癌臨床決策支援平台 — 僅供醫療專業人員使用</p>
+      </div>
+      <div style="text-align:right;">
+        <p style="margin:0;">© 2025 Clinical Decision Support. All rights reserved.</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
