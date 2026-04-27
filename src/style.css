@@ -798,3 +798,39 @@ tbody tr:hover { background: var(--color-gray-10); }
   .container { padding: 0 var(--space-4); }
   .btn { padding: 11px 48px 11px 14px; }
 }
+
+/* === Patient Finder === */
+.finder-card {
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  padding: var(--space-5);
+}
+.finder-step {
+  background: var(--color-gray-10);
+  padding: var(--space-4);
+  border-top: 3px solid var(--color-primary);
+  height: 100%;
+}
+.finder-step__header {
+  font-weight: 600;
+  color: var(--color-midnight);
+  margin-bottom: var(--space-3);
+  font-size: 1rem;
+}
+.finder-step__body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+.checkbox-label {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 0.875rem;
+  color: var(--color-gray-80);
+  cursor: pointer;
+  line-height: 1.4;
+}
+.checkbox-label input {
+  margin-top: 3px;
+}

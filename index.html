@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="基於 NCCN 指引的前列腺癌早期強化治療臨床決策支援平台，提供 Enzalutamide 臨床證據、病人選擇與治療路徑參考。" />
-  <title>前列腺癌臨床決策支援平台 — NCCN Evidence Hub</title>
+  <meta name="description" content="前列腺癌自費早期強化治療決策支援工具。找出適合自費早期 ARPI 強化治療的前列腺癌病人。" />
+  <title>前列腺癌臨床決策支援平台</title>
   <link rel="icon" type="image/svg+xml" href="/vite.svg" />
   <script type="module" src="/src/main.js"></script>
 </head>
@@ -26,17 +26,25 @@
   </div>
 </header>
 
-<!-- ======== HERO ======== -->
+<!-- ======== 1. HERO ======== -->
 <section class="hero" id="hero">
   <div class="container">
     <div class="hero__grid">
       <div>
-        <p class="hero__label">NCCN Category 1 推薦</p>
-        <h1 class="hero__title">延緩疾病進展<br>優化存活期</h1>
-        <p class="hero__subtitle">基於 NCCN 臨床指引的前列腺癌早期強化治療策略。快速查閱 Enzalutamide 臨床證據、治療路徑與病人選擇參考。</p>
-        <div class="flex gap-3">
-          <a href="pathway.html" class="btn btn--primary">探索治療路徑 <span class="btn__icon">→</span></a>
-          <a href="evidence.html" class="btn btn--ghost">查看臨床證據</a>
+        <p class="hero__label">前列腺癌自費早期強化治療決策支援工具</p>
+        <h1 class="hero__title">找出適合自費早期<br>ARPI 強化治療的<br>前列腺癌病人</h1>
+        <p class="hero__subtitle" style="margin-bottom: 16px;">當病人已出現疾病進展風險，但尚未完全符合健保給付條件時，醫師可依據疾病階段、PSADT、轉移負荷、共病狀態與病人治療偏好，評估是否討論自費 ARPI 早期介入。</p>
+        <div style="background:var(--color-gray-10); padding:16px; border-left:4px solid var(--color-primary); margin-bottom: 32px;">
+          <p style="font-weight:600; margin-bottom:8px; font-size:0.9375rem; color:var(--color-midnight);">聚焦三類臨床缺口：</p>
+          <ul style="font-size:0.875rem; margin:0; padding-left:1.5rem; color:var(--color-gray-80); line-height:1.6;">
+            <li><strong>高風險 BCR：</strong>PSADT ≤ 9 個月，影像未見轉移</li>
+            <li><strong>低體積 mCSPC：</strong>國際指引建議強化，但健保給付可能受限</li>
+            <li><strong>Chemo-averse mCRPC：</strong>不願或不適合化療者</li>
+          </ul>
+        </div>
+        <div class="flex flex-wrap gap-3">
+          <a href="#patient-finder" class="btn btn--primary">立即判斷病人是否符合高獲益族群 <span class="btn__icon">↓</span></a>
+          <a href="#evidence" class="btn btn--ghost">查看 EMBARK / ARCHES / PREVAIL 證據</a>
         </div>
       </div>
       <div>
@@ -68,43 +76,190 @@
   </div>
 </section>
 
-<!-- ======== SECTION 2: Clinical Challenge ======== -->
-<section class="section section--gray" id="challenge">
+<!-- ======== 2. Patient Finder ======== -->
+<section class="section section--gray" id="patient-finder">
   <div class="container">
-    <p class="section__label">Clinical Challenge</p>
-    <h2>跨越單藥治療的侷限</h2>
-    <div class="grid-3">
-      <div class="card card--white card--bordered-top">
-        <div class="card__label">挑戰 01</div>
-        <h3 class="card__title">ADT 抗藥性風險</h3>
-        <p class="card__text">單一 ADT 治療後，前列腺癌細胞可透過雄性素受體過度表現或突變發展為去勢抗性（CRPC），中位時間約 18-24 個月。</p>
+    <p class="section__label">Patient Finder</p>
+    <h2>三步驟病人篩選器</h2>
+    <div class="finder-card">
+      <div class="grid-3">
+        <div class="finder-step">
+          <div class="finder-step__header">Step 1：目前疾病階段？</div>
+          <div class="finder-step__body">
+            <label class="checkbox-label"><input type="radio" name="step1" value="bcr"> BCR</label>
+            <label class="checkbox-label"><input type="radio" name="step1" value="nmcrpc"> nmCRPC</label>
+            <label class="checkbox-label"><input type="radio" name="step1" value="mcspc"> mCSPC</label>
+            <label class="checkbox-label"><input type="radio" name="step1" value="mcrpc"> mCRPC</label>
+          </div>
+        </div>
+        <div class="finder-step">
+          <div class="finder-step__header">Step 2：目前健保是否可給付？</div>
+          <div class="finder-step__body">
+            <label class="checkbox-label"><input type="radio" name="step2" value="yes"> 可給付</label>
+            <label class="checkbox-label"><input type="radio" name="step2" value="review"> 需事前審查</label>
+            <label class="checkbox-label"><input type="radio" name="step2" value="no"> 不符合目前給付條件</label>
+            <label class="checkbox-label"><input type="radio" name="step2" value="unknown"> 尚不確定</label>
+          </div>
+        </div>
+        <div class="finder-step">
+          <div class="finder-step__header">Step 3：是否有自費討論空間？</div>
+          <div class="finder-step__body">
+            <label class="checkbox-label"><input type="checkbox" name="step3"> PSA 快速上升</label>
+            <label class="checkbox-label"><input type="checkbox" name="step3"> 低體積轉移</label>
+            <label class="checkbox-label"><input type="checkbox" name="step3"> 不願化療</label>
+            <label class="checkbox-label"><input type="checkbox" name="step3"> 共病多，不適合 steroid-based regimen</label>
+            <label class="checkbox-label"><input type="checkbox" name="step3"> 對疾病進展高度焦慮</label>
+          </div>
+        </div>
       </div>
-      <div class="card card--white card--bordered-top">
-        <div class="card__label">挑戰 02</div>
-        <h3 class="card__title">微小轉移的潛在威脅</h3>
-        <p class="card__text">在 PSA 上升但影像學尚未偵測到轉移的階段，微小轉移（Micrometastasis）可能已存在，延遲治療等同錯失控制窗口。</p>
+      <div class="finder-result mt-5" id="finderResult" style="display:none; background: #DEFBE6; padding: 16px; border-left: 4px solid #198038;">
+        <h4 style="color:#044317; margin-bottom:8px;">評估結果：可討論早期 ARPI 強化治療</h4>
+        <p style="margin:0; font-size:14px; color:#044317;">建議醫師進一步評估病人臨床條件與後續治療策略。</p>
       </div>
-      <div class="card card--white card--gold">
-        <div class="card__label"><span class="badge badge--gold">健保限制</span></div>
-        <h3 class="card__title">NCCN 指引與健保給付的落差</h3>
-        <p class="card__text">NCCN 建議所有 mCSPC 患者應強化治療，但台灣健保僅給付高風險（如內臟轉移或多處骨轉移）族群，低體積患者需自費才能接受指引推薦方案。</p>
+      <div class="mt-5 text-center">
+        <button class="btn btn--primary" id="btnAnalyze" onclick="document.getElementById('finderResult').style.display='block';">開始分析病人條件</button>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ======== SECTION 3: Gap Analysis ======== -->
+<!-- ======== 3. Three High-value Segments ======== -->
+<section class="section" id="segments">
+  <div class="container">
+    <p class="section__label">Three High-value Segments</p>
+    <h2>核心自費討論族群</h2>
+    <div class="grid-3">
+      <!-- Segment 1 -->
+      <div class="card card--white card--bordered-top">
+        <div class="card__label">核心自費族群 1</div>
+        <h3 class="card__title">高風險 BCR</h3>
+        <p class="text-sm mt-2" style="font-weight:600; color:var(--color-primary);">【臨床條件】</p>
+        <ul style="font-size:0.875rem;padding-left:1.25rem;margin-bottom:12px;color:var(--color-gray-80);">
+          <li>PSA rising after local therapy</li>
+          <li>Conventional imaging negative</li>
+          <li>PSADT ≤ 9 months</li>
+        </ul>
+        <p class="text-sm" style="font-weight:600; color:var(--color-primary);">【臨床理由】</p>
+        <p class="card__text">EMBARK 證實 MFS 改善，後續 OS 數據也支持 combination therapy。PubMed 顯示 enzalutamide + leuprolide 相較 leuprolide alone 具有 OS 顯著改善。</p>
+      </div>
+      <!-- Segment 2 -->
+      <div class="card card--white card--bordered-top">
+        <div class="card__label">核心自費族群 2</div>
+        <h3 class="card__title">低體積 mCSPC</h3>
+        <p class="text-sm mt-2" style="font-weight:600; color:var(--color-primary);">【臨床條件】</p>
+        <ul style="font-size:0.875rem;padding-left:1.25rem;margin-bottom:12px;color:var(--color-gray-80);">
+          <li>metastatic castration-sensitive prostate cancer</li>
+          <li>low-volume / low-burden</li>
+        </ul>
+        <p class="text-sm" style="font-weight:600; color:var(--color-primary);">【臨床理由】</p>
+        <p class="card__text">國際治療趨勢支持早期強化，但台灣給付條件可能使部分病人需要自費銜接。</p>
+      </div>
+      <!-- Segment 3 -->
+      <div class="card card--white card--bordered-top">
+        <div class="card__label">核心自費族群 3</div>
+        <h3 class="card__title">Chemo-averse mCRPC</h3>
+        <p class="text-sm mt-2" style="font-weight:600; color:var(--color-primary);">【臨床條件】</p>
+        <ul style="font-size:0.875rem;padding-left:1.25rem;margin-bottom:12px;color:var(--color-gray-80);">
+          <li>年長、共病多</li>
+          <li>擔心化療副作用</li>
+          <li>想維持生活品質</li>
+        </ul>
+        <p class="text-sm" style="font-weight:600; color:var(--color-primary);">【臨床理由】</p>
+        <p class="card__text">PREVAIL 可作為化療前治療討論依據，適合不願或不適合化療的 mCRPC 病人。</p>
+      </div>
+    </div>
+    
+    <div class="mt-5 p-4" style="background:var(--color-gray-10); border-left:3px solid var(--color-gray-30);">
+      <p class="text-sm" style="margin:0; color:var(--color-gray-80);"><strong>【探索性資料】術前高風險：</strong>目前屬探索性定位，可追求極致降階 (Pathological Response)，縮小腫瘤體積。建議作為進階臨床討論參考，不放在常規推廣優先順序。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ======== 4. Evidence Cards ======== -->
+<section class="section section--gray" id="evidence">
+  <div class="container">
+    <p class="section__label">Evidence Cards</p>
+    <h2>關鍵臨床試驗證據</h2>
+    <div class="grid-3">
+      <!-- EMBARK -->
+      <div class="card card--white">
+        <div class="card__label">Trial</div>
+        <h3 class="card__title">EMBARK</h3>
+        
+        <div class="mt-3">
+          <p class="text-sm" style="color:var(--color-primary);font-weight:600;margin-bottom:2px;">適用病人：</p>
+          <p class="text-sm" style="margin-bottom:12px;color:var(--color-gray-80);">High-risk BCR, PSADT ≤ 9 months, imaging negative</p>
+          
+          <p class="text-sm" style="color:var(--color-primary);font-weight:600;margin-bottom:2px;">關鍵結果：</p>
+          <p class="text-sm" style="margin-bottom:12px;color:var(--color-gray-80);">MFS HR 0.42<br>OS HR 約 0.60</p>
+          
+          <p class="text-sm" style="color:var(--color-primary);font-weight:600;margin-bottom:2px;">門診意義：</p>
+          <p class="text-sm" style="margin-bottom:12px;color:var(--color-gray-80);">PSA 快速上升但影像仍陰性時，可與病人討論早期強化治療價值。</p>
+          
+          <div style="background:#F4F4F4; padding:12px; border-left:3px solid var(--color-primary);">
+            <p class="text-xs" style="color:var(--color-gray-50);margin-bottom:4px;font-weight:600;">自費切入語：</p>
+            <p class="text-sm" style="margin:0;font-style:italic;color:var(--color-midnight);">「目前影像還看不到轉移，但 PSA 倍增速度代表疾病風險正在升高，這是可以討論早期介入的時間點。」</p>
+          </div>
+        </div>
+      </div>
+      <!-- ARCHES -->
+      <div class="card card--white">
+        <div class="card__label">Trial</div>
+        <h3 class="card__title">ARCHES</h3>
+        
+        <div class="mt-3">
+          <p class="text-sm" style="color:var(--color-primary);font-weight:600;margin-bottom:2px;">適用病人：</p>
+          <p class="text-sm" style="margin-bottom:12px;color:var(--color-gray-80);">mCSPC (含低體積/高體積轉移)</p>
+          
+          <p class="text-sm" style="color:var(--color-primary);font-weight:600;margin-bottom:2px;">關鍵結果：</p>
+          <p class="text-sm" style="margin-bottom:12px;color:var(--color-gray-80);">顯著改善 rPFS，降低影像學進展或死亡風險</p>
+          
+          <p class="text-sm" style="color:var(--color-primary);font-weight:600;margin-bottom:2px;">門診意義：</p>
+          <p class="text-sm" style="margin-bottom:12px;color:var(--color-gray-80);">無論腫瘤體積大小，早期加入強化治療皆有獲益。低體積病人尤其需要溝通自費價值。</p>
+          
+          <div style="background:#F4F4F4; padding:12px; border-left:3px solid var(--color-primary);">
+            <p class="text-xs" style="color:var(--color-gray-50);margin-bottom:4px;font-weight:600;">自費切入語：</p>
+            <p class="text-sm" style="margin:0;font-style:italic;color:var(--color-midnight);">「雖然健保目前針對您的狀況還沒有給付，但國際指引已經建議現在就加上口服藥，效果會比單用針劑更好。」</p>
+          </div>
+        </div>
+      </div>
+      <!-- PREVAIL -->
+      <div class="card card--white">
+        <div class="card__label">Trial</div>
+        <h3 class="card__title">PREVAIL</h3>
+        
+        <div class="mt-3">
+          <p class="text-sm" style="color:var(--color-primary);font-weight:600;margin-bottom:2px;">適用病人：</p>
+          <p class="text-sm" style="margin-bottom:12px;color:var(--color-gray-80);">化療前 mCRPC (Chemo-naïve)</p>
+          
+          <p class="text-sm" style="color:var(--color-primary);font-weight:600;margin-bottom:2px;">關鍵結果：</p>
+          <p class="text-sm" style="margin-bottom:12px;color:var(--color-gray-80);">顯著改善 OS 與 rPFS，中位數延緩化療起始時間達 28 個月</p>
+          
+          <p class="text-sm" style="color:var(--color-primary);font-weight:600;margin-bottom:2px;">門診意義：</p>
+          <p class="text-sm" style="margin-bottom:12px;color:var(--color-gray-80);">對於排斥化療副作用、共病較多的長者，可作為優先考慮的口服選項。</p>
+          
+          <div style="background:#F4F4F4; padding:12px; border-left:3px solid var(--color-primary);">
+            <p class="text-xs" style="color:var(--color-gray-50);margin-bottom:4px;font-weight:600;">自費切入語：</p>
+            <p class="text-sm" style="margin:0;font-style:italic;color:var(--color-midnight);">「如果您很擔心化療的副作用，我們可以考慮先使用這款口服藥物，研究顯示它可以有效控制病情，幫您把需要化療的時間延後兩年多。」</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="mt-4 p-3" style="background:var(--color-white); border:1px solid var(--color-border);">
+      <p class="text-sm" style="margin:0; color:var(--color-gray-80);"><strong>【次要參考】PROSPER：</strong>支持 Enzalutamide 在 nmCRPC 顯著改善 MFS，延緩遠端轉移發生。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ======== 5. Taiwan Reimbursement Gap ======== -->
 <section class="section" id="pathway">
   <div class="container">
-    <p class="section__label">Gap Analysis</p>
-    <h2>國際指引與台灣健保給付落差：自費討論族群辨識</h2>
-    <p>當 NCCN 已建議早期 ARPI 強化治療，但台灣健保尚未完全涵蓋時，可形成醫師與病人共同決策的自費討論空間。</p>
-
-    <!-- Key Conclusion Callout -->
-    <div class="gap-conclusion">
-      <p class="gap-conclusion__text">
-        核心觀點：不是單純比較 NCCN 與健保，而是幫醫師快速找出<em>「國際證據支持、但台灣給付尚未涵蓋」</em>的自費病人族群。
-      </p>
+    <p class="section__label">Taiwan Reimbursement Gap</p>
+    <h2>國際指引與台灣健保給付落差</h2>
+    
+    <div style="background:#FFF8E1; padding:16px; border-left:4px solid #F1C21B; margin-bottom: 24px;">
+      <p style="margin:0; font-size:0.9375rem; color:#8E6A00; font-weight:500;">此處整理臨床討論方向，實際給付資格須回到最新健保規範與院內事前審查為準。</p>
     </div>
 
     <!-- 4-Column Gap Table -->
@@ -113,21 +268,44 @@
         <thead>
           <tr>
             <th>疾病階段</th>
-            <th><span class="th-icon th-icon--blue"></span>NCCN / 國際治療方向</th>
+            <th><span class="th-icon th-icon--blue"></span>NCCN / 國際標準</th>
             <th><span class="th-icon th-icon--gold"></span>台灣健保現況</th>
             <th><span class="th-icon th-icon--red"></span>自費討論機會</th>
           </tr>
         </thead>
         <tbody>
-          <!-- Row 1: mCSPC Low Volume -->
-          <tr>
+          <!-- Row 1: Early BCR (Highlight) -->
+          <tr class="gap-row--highlight">
             <td data-label="疾病階段">
               <div class="gap-stage">
                 <span class="gap-stage__num">Stage 01</span>
+                Early BCR<br>高風險
+              </div>
+            </td>
+            <td data-label="NCCN / 國際標準">
+              <div class="gap-cell__title">Enzalutamide + ADT 改善 MFS</div>
+              <p class="gap-cell__desc">EMBARK 試驗：PSADT ≤ 9 個月之高風險 BCR 患者，Enzalutamide + ADT 降低轉移或死亡風險達 58%（HR=0.42）。</p>
+            </td>
+            <td data-label="台灣健保現況">
+              <div class="gap-cell__title">目前尚無明確給付</div>
+              <p class="gap-cell__desc">台灣健保對 Early BCR 階段的 ARPI 使用<strong style="color:var(--color-danger);font-weight:600;">目前無對應給付規範</strong>。</p>
+            </td>
+            <td data-label="自費討論機會">
+              <div class="gap-opportunity">
+                <div class="gap-opportunity__tag gap-opportunity__tag--max">▲ 最大缺口族群</div>
+                <p class="gap-opportunity__text">高風險 BCR 患者（PSADT ≤ 9 個月）有強力國際證據支持，適合作為自費早期強化治療的優先討論對象。</p>
+              </div>
+            </td>
+          </tr>
+          <!-- Row 2: mCSPC Low Volume -->
+          <tr>
+            <td data-label="疾病階段">
+              <div class="gap-stage">
+                <span class="gap-stage__num">Stage 02</span>
                 mCSPC<br>低體積
               </div>
             </td>
-            <td data-label="NCCN / 國際治療方向">
+            <td data-label="NCCN / 國際標準">
               <div class="gap-cell__title">ADT + ARPI 強化治療</div>
               <p class="gap-cell__desc">NCCN Category 1 推薦。ARCHES 試驗顯示無論高體積或低體積，早期加入 Enzalutamide 皆帶來顯著 rPFS 獲益。</p>
             </td>
@@ -138,294 +316,108 @@
             <td data-label="自費討論機會">
               <div class="gap-opportunity">
                 <div class="gap-opportunity__tag">給付缺口</div>
-                <p class="gap-opportunity__text">低體積但希望早期強化治療的患者。<strong>國際指引支持強化治療，但健保可能不符合給付條件 → 可討論自費 ARPI。</strong></p>
+                <p class="gap-opportunity__text">低體積但希望早期強化治療的患者。國際指引支持強化治療，但健保不符合給付條件 → 可討論自費 ARPI。</p>
               </div>
             </td>
           </tr>
-          <!-- Row 2: nmCRPC -->
+          <!-- Row 3: nmCRPC -->
           <tr>
             <td data-label="疾病階段">
               <div class="gap-stage">
-                <span class="gap-stage__num">Stage 02</span>
+                <span class="gap-stage__num">Stage 03</span>
                 nmCRPC
               </div>
             </td>
-            <td data-label="NCCN / 國際治療方向">
+            <td data-label="NCCN / 國際標準">
               <div class="gap-cell__title">PSADT ≤ 10 個月可加入 ARPI</div>
-              <p class="gap-cell__desc">儘早介入延緩遠端轉移發生。PROSPER 試驗支持 Enzalutamide 在 nmCRPC 的顯著 MFS 改善。</p>
+              <p class="gap-cell__desc">儘早介入延緩遠端轉移發生。PROSPER 試驗支持 Enzalutamide 的顯著 MFS 改善。</p>
             </td>
             <td data-label="台灣健保現況">
               <div class="gap-cell__title">PSADT ≤ 10 個月 + 行政審查</div>
-              <p class="gap-cell__desc">需事前審查，且<strong style="color:var(--color-gold);font-weight:600;">不可與其他 ARPI 輪替</strong>。行政流程可能延遲治療啟動時機。</p>
+              <p class="gap-cell__desc">需事前審查，且<strong style="color:var(--color-gold);font-weight:600;">不可與其他 ARPI 輪替</strong>。</p>
             </td>
             <td data-label="自費討論機會">
               <div class="gap-opportunity">
                 <div class="gap-opportunity__tag">需謹慎規劃</div>
-                <p class="gap-opportunity__text">給付前評估期間，需考慮自費先行啟動治療。<strong>後續治療戰略須提前規劃，避免觸碰「不可輪替」條款。</strong></p>
-              </div>
-            </td>
-          </tr>
-          <!-- Row 3: Early BCR (Highlight) -->
-          <tr class="gap-row--highlight">
-            <td data-label="疾病階段">
-              <div class="gap-stage">
-                <span class="gap-stage__num">Stage 03</span>
-                Early BCR<br>高風險
-              </div>
-            </td>
-            <td data-label="NCCN / 國際治療方向">
-              <div class="gap-cell__title">Enzalutamide + ADT 改善 MFS</div>
-              <p class="gap-cell__desc">EMBARK 試驗：PSADT ≤ 9 個月之高風險 BCR 患者，Enzalutamide + ADT 降低轉移或死亡風險達 58%（HR=0.42）。2025 更新 OS 數據同樣正向（HR=0.60）。</p>
-            </td>
-            <td data-label="台灣健保現況">
-              <div class="gap-cell__title">目前尚無明確給付</div>
-              <p class="gap-cell__desc">台灣健保對 Early BCR 階段的 ARPI 使用<strong style="color:var(--color-danger);font-weight:600;">目前無對應給付規範</strong>。醫師僅能建議觀察等待。</p>
-            </td>
-            <td data-label="自費討論機會">
-              <div class="gap-opportunity">
-                <div class="gap-opportunity__tag gap-opportunity__tag--max">▲ 最大缺口族群</div>
-                <p class="gap-opportunity__text"><strong>最值得建立門診篩選流程的自費討論族群。</strong>高風險 BCR 患者（PSADT ≤ 9 個月）有強力國際證據支持，適合作為自費早期強化治療的優先討論對象。</p>
+                <p class="gap-opportunity__text">給付前評估期間，需考慮自費先行啟動治療。後續治療戰略須提前規劃，避免觸碰不可輪替條款。</p>
               </div>
             </td>
           </tr>
         </tbody>
       </table>
     </div>
-
-    <!-- Color Legend -->
-    <div class="gap-legend">
-      <div class="gap-legend__item"><span class="gap-legend__dot gap-legend__dot--blue"></span>國際指引支持</div>
-      <div class="gap-legend__item"><span class="gap-legend__dot gap-legend__dot--gold"></span>台灣健保可給付（有條件）</div>
-      <div class="gap-legend__item"><span class="gap-legend__dot gap-legend__dot--red"></span>給付缺口 / 自費討論空間</div>
-      <div class="gap-legend__item"><span class="gap-legend__dot gap-legend__dot--gray"></span>尚未成熟或僅供觀察</div>
-    </div>
-
-    <!-- Bottom Summary + CTA -->
-    <div class="gap-summary">
-      <p class="gap-summary__text">重點結論：Early BCR 與低體積 mCSPC 是目前最值得辨識的自費討論族群。</p>
-      <p class="gap-summary__sub">當國際證據已明確支持早期強化治療，但健保給付條件尚未涵蓋時，醫師可透過門診篩選流程主動辨識這些患者，進行自費共同決策。</p>
-    </div>
-
-    <div class="mt-6">
-      <a href="pathway.html" class="btn btn--primary">查看哪些病人適合討論自費早期強化治療 <span class="btn__icon">→</span></a>
-    </div>
   </div>
 </section>
 
-<!-- ======== SECTION 4: Drug Profile ======== -->
-<section class="section section--gray" id="drug">
+<!-- ======== 6. Doctor FAQ ======== -->
+<section class="section section--gray" id="faq">
   <div class="container">
-    <p class="section__label">Generic Drug Profile</p>
-    <h2>ARPI 治療定位：Enzalutamide</h2>
-    <div class="grid-sidebar">
-      <div>
-        <div class="card card--white card--bordered-top">
-          <div class="card__label">藥理分類</div>
-          <h4>Androgen Receptor Pathway Inhibitor</h4>
-          <p class="text-sm mt-3">三重阻斷機制：</p>
-          <ul style="font-size:0.875rem;padding-left:1.25rem;margin-top:8px;line-height:1.8;">
-            <li>阻斷雄性素與 AR 結合</li>
-            <li>阻止 AR 進入細胞核</li>
-            <li>阻斷 DNA 結合與轉錄</li>
-          </ul>
-          <div class="mt-4">
-            <span class="badge badge--blue">無需合併類固醇</span>
-          </div>
-        </div>
-        <div class="mt-4">
-          <a href="drug-enzalutamide.html" class="btn btn--primary">查看完整藥物檔案 <span class="btn__icon">→</span></a>
-        </div>
-      </div>
-      <div>
-        <div class="grid-2">
-          <div class="card card--white">
-            <div class="card__label">劑量</div>
-            <div class="data-highlight">160mg</div>
-            <p class="text-sm mt-2">每日一次口服，隨餐或空腹皆可</p>
-          </div>
-          <div class="card card--white">
-            <div class="card__label">NCCN 推薦等級</div>
-            <div class="data-highlight">Cat. 1</div>
-            <p class="text-sm mt-2">最高等級實證推薦</p>
-          </div>
-          <div class="card card--white">
-            <div class="card__label">適應症階段</div>
-            <div style="font-size:0.875rem;margin-top:8px;">
-              <span class="badge badge--blue" style="margin:2px;">mCSPC</span>
-              <span class="badge badge--blue" style="margin:2px;">nmCRPC</span>
-              <span class="badge badge--blue" style="margin:2px;">mCRPC</span>
-              <span class="badge badge--green" style="margin:2px;">Early BCR</span>
-            </div>
-          </div>
-          <div class="card card--white">
-            <div class="card__label">臨床優勢</div>
-            <p class="text-sm mt-2">無需常規肝功能監測；無需合併 Prednisone；口服給藥便利性高</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ======== SECTION 5: Key Evidence ======== -->
-<section class="section" id="evidence">
-  <div class="container">
-    <p class="section__label">Key Evidence</p>
-    <h2>改變指引的關鍵數據</h2>
-    <div class="grid-3">
-      <!-- EMBARK -->
-      <div class="card card--bordered-top">
-        <div class="card__label">Phase 3 Trial</div>
-        <h3 class="card__title">EMBARK</h3>
-        <p class="text-sm" style="color:var(--color-gray-50);">高風險生化復發 (PSADT ≤ 9 個月)</p>
-        <div class="mt-4">
-          <div class="stat">
-            <div class="stat__value">HR 0.42</div>
-            <div class="stat__label">Metastasis-Free Survival</div>
-            <p class="stat__detail">降低轉移或死亡風險達 58%</p>
-          </div>
-        </div>
-        <div class="mt-4">
-          <div class="stat">
-            <div class="stat__value" style="font-size:1.75rem;">HR 0.60</div>
-            <div class="stat__label">Overall Survival</div>
-            <p class="stat__detail">2025 更新數據顯示 OS 具統計學意義改善</p>
-          </div>
-        </div>
-      </div>
-      <!-- ARCHES -->
-      <div class="card card--bordered-top">
-        <div class="card__label">Phase 3 Trial</div>
-        <h3 class="card__title">ARCHES</h3>
-        <p class="text-sm" style="color:var(--color-gray-50);">mCSPC（所有體積）</p>
-        <div class="mt-4">
-          <div class="stat">
-            <div class="stat__value">rPFS</div>
-            <div class="stat__label">顯著改善</div>
-            <p class="stat__detail">無論高體積或低體積患者，早期加入 Enzalutamide 皆帶來顯著 rPFS 獲益</p>
-          </div>
-        </div>
-        <div class="mt-4">
-          <span class="badge badge--blue">支持所有體積強化治療</span>
-        </div>
-      </div>
-      <!-- PREVAIL -->
-      <div class="card card--bordered-top">
-        <div class="card__label">Phase 3 Trial</div>
-        <h3 class="card__title">PREVAIL</h3>
-        <p class="text-sm" style="color:var(--color-gray-50);">化療前 mCRPC</p>
-        <div class="mt-4">
-          <div class="stat">
-            <div class="stat__value">28 mo</div>
-            <div class="stat__label">延緩化療起始時間</div>
-            <p class="stat__detail">中位數延緩 28 個月，適合不願或不適合化療的患者</p>
-          </div>
-        </div>
-        <div class="mt-4">
-          <span class="badge badge--green">適合 Chemo-Averse 族群</span>
-        </div>
-      </div>
-    </div>
-    <div class="mt-6">
-      <a href="evidence.html" class="btn btn--primary">查看完整臨床證據庫 <span class="btn__icon">→</span></a>
-    </div>
-  </div>
-</section>
-
-<!-- ======== SECTION 6: Patient Selection ======== -->
-<section class="section section--gray" id="patients">
-  <div class="container">
-    <p class="section__label">Patient Selection</p>
-    <h2>辨識高獲益族群</h2>
-    <div class="grid-4">
-      <div class="card card--white card--bordered-top">
-        <div class="card__label">族群 A</div>
-        <h4 class="card__title">生化復發且高度焦慮</h4>
-        <p class="card__text">PSA 上升但影像學未見轉移。PSADT ≤ 9 個月。</p>
-        <p class="text-sm mt-3" style="color:var(--color-primary);font-weight:500;">→ EMBARK 證據支持</p>
-      </div>
-      <div class="card card--white card--bordered-top">
-        <div class="card__label">族群 B</div>
-        <h4 class="card__title">不願接受化療</h4>
-        <p class="card__text">已用過 Abiraterone 或排斥化療副作用。需維持生活品質。</p>
-        <p class="text-sm mt-3" style="color:var(--color-primary);font-weight:500;">→ PREVAIL 證據支持</p>
-      </div>
-      <div class="card card--white card--bordered-top">
-        <div class="card__label">族群 C</div>
-        <h4 class="card__title">低體積 mCSPC</h4>
-        <p class="card__text">NCCN 建議強化治療，但健保僅給付高體積。</p>
-        <p class="text-sm mt-3" style="color:var(--color-primary);font-weight:500;">→ ARCHES 證據支持</p>
-      </div>
-      <div class="card card--white card--bordered-top">
-        <div class="card__label">族群 D</div>
-        <h4 class="card__title">術前高風險</h4>
-        <p class="card__text">追求極致降階 (Pathological Response)，縮小腫瘤體積。</p>
-        <p class="text-sm mt-3" style="color:var(--color-gold);font-weight:500;">→ 探索性適應症</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ======== SECTION 7: FAQ ======== -->
-<section class="section" id="faq">
-  <div class="container">
-    <p class="section__label">Clinician FAQ</p>
-    <h2>醫師常見臨床問題</h2>
+    <p class="section__label">Doctor FAQ</p>
+    <h2>門診常見自費溝通問題</h2>
     <div class="accordion" style="max-width:800px;">
       <div class="accordion__item open">
         <button class="accordion__header">
-          為何建議在影像學轉移前就使用 ARPI？
+          1. 哪些 BCR 病人值得提早討論 ARPI？
           <span class="accordion__icon">▾</span>
         </button>
         <div class="accordion__body">
-          <p>根據 EMBARK 數據，在 PSA 快速上升階段（PSADT ≤ 9 個月）即介入 Enzalutamide，可降低轉移或死亡風險達 58%（HR=0.42）。2025 年更新數據進一步顯示 OS 改善（HR=0.60）。在 PSA 上升但影像學未見轉移的階段即介入，可極大化無轉移存活期（MFS），為患者爭取潛在的治療暫停機會。</p>
+          <p>回答重點：PSADT ≤ 9 個月、影像陰性、病人預期壽命較長、希望延緩轉移的患者最為適合。</p>
         </div>
       </div>
       <div class="accordion__item">
         <button class="accordion__header">
-          已使用過 Abiraterone，自費換用 Enzalutamide 是否有效？
+          2. 如果病人目前低體積 mCSPC，但健保不易給付，如何溝通？
           <span class="accordion__icon">▾</span>
         </button>
         <div class="accordion__body">
-          <p>ARPI 之間確實存在交叉抗藥性，這是因為兩者皆作用於雄性素受體路徑。但 Enzalutamide 的三重阻斷機制與 Abiraterone 的 CYP17 抑制機轉不同。對於排斥化療的患者，自費換用仍可視為延緩疾病進展的選項，但需與患者充分溝通期望值與可能的獲益幅度。</p>
+          <p>回答重點：說明國際指引強化治療趨勢、疾病控制時間的延長，並與患者共同評估後續治療策略的銜接。</p>
         </div>
       </div>
       <div class="accordion__item">
         <button class="accordion__header">
-          自費提早使用是否影響後續健保給付資格？
+          3. Enzalutamide 和 abiraterone 怎麼選？
           <span class="accordion__icon">▾</span>
         </button>
         <div class="accordion__body">
-          <p>在目前健保規定下，「不可輪替」條款限制了不同 ARPI 間的序貫使用。因此，透過早期自費啟動 Enzalutamide，可規避未來健保「不可輪替」的限制，為患者保留疾病惡化時使用其他健保資助療法的彈性空間。建議在啟動自費方案前與患者討論長期治療戰略。</p>
+          <p>回答重點：Enzalutamide 不需併用 prednisone，對糖尿病、感染風險、steroid concern 的病人較容易討論與管理。</p>
         </div>
       </div>
       <div class="accordion__item">
         <button class="accordion__header">
-          Enzalutamide 與 Abiraterone 相比有哪些臨床便利性差異？
+          4. 自費病人最常問什麼？
           <span class="accordion__icon">▾</span>
         </button>
         <div class="accordion__body">
-          <p>Enzalutamide 無需常規併用類固醇（Prednisone），減少了代謝、免疫抑制等類固醇相關副作用的風險。此外，Enzalutamide 不需要常規肝功能監測。對於糖尿病共病或高齡患者，這些特性具有臨床便利性上的優勢。</p>
+          <p>回答重點：病人通常最關心：要吃多久、多久看效果、未來是否影響健保給付資格、費用負擔，以及疲倦與跌倒風險的管理。</p>
         </div>
       </div>
       <div class="accordion__item">
         <button class="accordion__header">
-          如何向病人解釋自費早期介入的理由？
+          5. 哪些病人不適合積極推自費？
           <span class="accordion__icon">▾</span>
         </button>
         <div class="accordion__body">
-          <p>建議溝通方式：「根據最新的國際標準，我們現在的做法是不等癌細胞擴散，在指數剛上升時就加入這款口服藥。雖然目前健保還沒給付這個階段，但提早用藥可以把擴散的風險降低一半。這是一種主動防禦策略，而不是被動等待。」</p>
+          <p>回答重點：PSA 緩慢上升、預期壽命短、ECOG 差、已有明顯認知或跌倒風險、經濟壓力明顯的患者，不建議積極推動自費早期介入。</p>
+        </div>
+      </div>
+      <div class="accordion__item">
+        <button class="accordion__header">
+          6. 自費提早使用是否影響後續健保給付資格？
+          <span class="accordion__icon">▾</span>
+        </button>
+        <div class="accordion__body">
+          <p>在啟動自費治療前，建議同步評估後續健保給付條件、序貫治療限制與長期治療策略，避免影響未來治療選擇。</p>
         </div>
       </div>
     </div>
     <div class="mt-6">
-      <a href="faq.html" class="btn btn--ghost">查看更多臨床問題 →</a>
+      <a href="faq.html" class="btn btn--ghost">查看完整醫師 FAQ →</a>
     </div>
   </div>
 </section>
 
-<!-- ======== SECTION 8: References ======== -->
-<section class="section section--gray" id="references">
+<!-- ======== 7. References ======== -->
+<section class="section" id="references">
   <div class="container">
     <p class="section__label">References</p>
     <h2>參考文獻</h2>
