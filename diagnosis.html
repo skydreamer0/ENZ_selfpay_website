@@ -690,6 +690,58 @@
         </button>
       </div>
     </div>
+
+    <!-- 給付可行性評估 -->
+    <div style="margin-top: 24px; padding: 24px; background: #f5f7fa; border-radius: 12px; border-left: 4px solid #0066cc;">
+      <h3 style="font-size: 18px; font-weight: 700; margin-bottom: 16px; color: #1a1a1a;">
+        💰 給付可行性評估
+      </h3>
+
+      <!-- 給付狀態 -->
+      <div style="margin-bottom: 20px;">
+        <h4 style="font-size: 14px; font-weight: 600; color: #555; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 12px;">
+          台灣健保給付狀態
+        </h4>
+        <div id="paymentFeasibility" style="padding: 14px; border-radius: 8px; font-weight: 600; font-size: 16px;"></div>
+      </div>
+
+      <!-- 必要文件清單 -->
+      <div style="margin-bottom: 20px;">
+        <h4 style="font-size: 14px; font-weight: 600; color: #555; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 12px;">
+          健保審查必要文件
+        </h4>
+        <ul id="documentChecklist" style="list-style: none; padding: 0;"></ul>
+      </div>
+
+      <!-- 成本參考 -->
+      <div style="background: white; padding: 12px; border-radius: 6px; border-left: 3px solid #f59e0b;">
+        <h4 style="font-size: 13px; font-weight: 600; color: #d97706; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 10px;">
+          💵 藥費參考（健保支付價）
+        </h4>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; font-size: 13px;">
+          <div>
+            <strong style="color: #333;">品牌藥（XTANDI）</strong><br/>
+            <span style="color: #d97706; font-size: 14px; font-weight: 700;">NT$52,200/月</span><br/>
+            <span style="color: #666; font-size: 12px;">NT$435 × 4 顆 × 30 日</span>
+          </div>
+          <div>
+            <strong style="color: #333;">學名藥（2025/10~）</strong><br/>
+            <span style="color: #22c55e; font-size: 14px; font-weight: 700;">NT$41,640/月</span><br/>
+            <span style="color: #666; font-size: 12px;">NT$347 × 4 顆 × 30 日</span>
+          </div>
+        </div>
+        <p style="margin-top: 10px; font-size: 12px; color: #666;">
+          ⚠️ 不含門診、調劑、ADT 費用、影像、抽血；實際自費零售價依醫院加價而異。
+        </p>
+      </div>
+
+      <!-- 快速連結 -->
+      <div style="margin-top: 20px; padding-top: 20px; border-top: 1px solid #e0e0e0;">
+        <a href="reference-guide.html" style="display: inline-block; padding: 10px 16px; background: #0066cc; color: white; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 13px;">
+          📚 查看完整參考指南
+        </a>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -700,6 +752,8 @@
       name: "High-risk BCR / nmCSPC",
       desc: "根治性治療後高風險生化復發",
       icon: "⚠️",
+      paymentStatus: "❌ <strong>自費或 TUA</strong><br/><span style='color: #666; font-size: 13px;'>台灣健保目前未列入給付</span>",
+      documents: ["根治性治療記錄", "系列 PSA 數據（≥3 點）", "testosterone 數據", "傳統影像（M0）", "PSADT 計算"],
       benefits: [
         "延遲轉移 <strong>2-3 年</strong>",
         "85% 患者 <strong>PSA 不可測</strong>",
@@ -746,6 +800,8 @@
       name: "High-risk mCSPC",
       desc: "高風險轉移性去勢敏感性前列腺癌",
       icon: "✅",
+      paymentStatus: "✅ <strong>健保給付</strong><br/><span style='color: #666; font-size: 13px;'>36 個月上限；需事前審查</span>",
+      documents: ["病理報告", "Gleason score", "高風險條件（2/3）", "系列 PSA 與 testosterone", "ADT 記錄", "近 3 月影像"],
       benefits: [
         "整體生存期延長 <strong>~3 年</strong>",
         "5 年生存率提升 <strong>12 個百分點</strong>（65.5% vs 53.4%）",
@@ -792,6 +848,8 @@
       name: "High-risk nmCRPC",
       desc: "高風險非轉移性去勢抗性前列腺癌",
       icon: "✅",
+      paymentStatus: "✅ <strong>健保給付</strong><br/><span style='color: #666; font-size: 13px;'>PSADT ≤10 個月；每 3 月再申請</span>",
+      documents: ["ECOG ≤1", "系列 PSA（≥3 點）", "testosterone 數據", "PSADT ≤10 月（線性回歸計算）", "3 個月內 M0 影像", "無遠端轉移證明"],
       benefits: [
         "延遲轉移 <strong>22 個月</strong>",
         "轉移或死亡風險降低 <strong>71%</strong>",
@@ -838,6 +896,8 @@
       name: "mCRPC（化療前）",
       desc: "無症狀或輕度症狀轉移性去勢抗性前列腺癌",
       icon: "✅",
+      paymentStatus: "✅ <strong>健保給付</strong><br/><span style='color: #666; font-size: 13px;'>ECOG 0–1；需事前審查</span>",
+      documents: ["ECOG 0–1 評估", "無常規止痛藥使用紀錄", "3 個月內影像（無臟器轉移）", "系列 PSA 與 testosterone", "ADT 失敗紀錄"],
       benefits: [
         "延遲化療 <strong>約 17 個月</strong>",
         "維持生活品質更久，避免早期化療毒性",
@@ -962,6 +1022,15 @@
       <div class="status-text">${data.paymentText}</div>
       <div class="status-detail">${data.paymentDetail}</div>
     `;
+
+    // 給付可行性：給付狀態
+    document.getElementById('paymentFeasibility').innerHTML = data.paymentStatus;
+
+    // 給付可行性：必要文件清單
+    const docChecklist = document.getElementById('documentChecklist');
+    docChecklist.innerHTML = data.documents
+      .map(doc => `<li style="padding: 8px 0; padding-left: 24px; position: relative;"><span style="position: absolute; left: 0; font-size: 16px;">☐</span>${doc}</li>`)
+      .join('');
 
     // 顯示結果卡片
     document.getElementById('resultCard').classList.remove('hidden');
