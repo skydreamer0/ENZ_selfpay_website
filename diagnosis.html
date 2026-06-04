@@ -1,0 +1,1009 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Enzalutamide 快速診斷工具：30 秒判斷你的病人符合哪個場景，直接看臨床獲益與論文數據。" />
+  <title>1 分鐘診斷卡 — Enzalutamide 臨床決策工具</title>
+  <script type="module" src="/src/main.js"></script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif;
+      background: linear-gradient(135deg, #f5f7fa 0%, #e9ecef 100%);
+      min-height: 100vh;
+      padding: 16px;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 32px;
+      padding-top: 20px;
+    }
+
+    header h1 {
+      font-size: 28px;
+      font-weight: 700;
+      color: #1a1a1a;
+      margin-bottom: 8px;
+      letter-spacing: -0.5px;
+    }
+
+    header p {
+      font-size: 14px;
+      color: #666;
+      font-weight: 500;
+    }
+
+    /* ========== 輸入表單 ========== */
+    .diagnosis-form {
+      background: white;
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      margin-bottom: 24px;
+    }
+
+    .form-section {
+      margin-bottom: 28px;
+    }
+
+    .form-section:last-child {
+      margin-bottom: 0;
+    }
+
+    .form-section-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: #0066cc;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .form-section-icon {
+      font-size: 18px;
+    }
+
+    /* 單選按鈕組 */
+    .radio-group {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .radio-option {
+      display: flex;
+      align-items: center;
+      padding: 14px 16px;
+      border: 2px solid #e0e0e0;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      background: #fafafa;
+    }
+
+    .radio-option:hover {
+      border-color: #0066cc;
+      background: #f0f6ff;
+    }
+
+    .radio-option input[type="radio"] {
+      width: 20px;
+      height: 20px;
+      margin-right: 12px;
+      cursor: pointer;
+      accent-color: #0066cc;
+    }
+
+    .radio-option label {
+      flex: 1;
+      font-size: 16px;
+      color: #333;
+      font-weight: 500;
+      cursor: pointer;
+      margin: 0;
+    }
+
+    .radio-option input[type="radio"]:checked + label {
+      color: #0066cc;
+      font-weight: 600;
+    }
+
+    /* 數字輸入 */
+    .input-row {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .input-group {
+      flex: 1;
+    }
+
+    .input-group label {
+      display: block;
+      font-size: 13px;
+      font-weight: 600;
+      color: #555;
+      margin-bottom: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .input-group input[type="number"] {
+      width: 100%;
+      padding: 12px 14px;
+      font-size: 16px;
+      border: 2px solid #e0e0e0;
+      border-radius: 8px;
+      transition: border-color 0.2s;
+    }
+
+    .input-group input[type="number"]:focus {
+      outline: none;
+      border-color: #0066cc;
+      background: #f0f6ff;
+    }
+
+    /* 複選框 */
+    .checkbox-option {
+      display: flex;
+      align-items: center;
+      padding: 12px 0;
+      cursor: pointer;
+    }
+
+    .checkbox-option input[type="checkbox"] {
+      width: 20px;
+      height: 20px;
+      margin-right: 12px;
+      cursor: pointer;
+      accent-color: #0066cc;
+    }
+
+    .checkbox-option label {
+      font-size: 16px;
+      color: #333;
+      font-weight: 500;
+      cursor: pointer;
+      margin: 0;
+    }
+
+    /* 按鈕 */
+    .btn {
+      width: 100%;
+      padding: 16px;
+      font-size: 18px;
+      font-weight: 700;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #0066cc 0%, #004a99 100%);
+      color: white;
+      box-shadow: 0 6px 20px rgba(0, 102, 204, 0.3);
+    }
+
+    .btn-primary:active {
+      transform: translateY(2px);
+      box-shadow: 0 2px 8px rgba(0, 102, 204, 0.2);
+    }
+
+    /* ========== 結果卡片 ========== */
+    .result-card {
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      overflow: hidden;
+      animation: slideUp 0.4s ease;
+    }
+
+    @keyframes slideUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .result-header {
+      background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+      color: white;
+      padding: 28px 24px;
+      text-align: center;
+    }
+
+    .result-header.selfpay {
+      background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+    }
+
+    .result-icon {
+      font-size: 48px;
+      margin-bottom: 12px;
+    }
+
+    .result-header h2 {
+      font-size: 24px;
+      font-weight: 700;
+      margin: 0;
+      letter-spacing: -0.5px;
+    }
+
+    .result-header p {
+      font-size: 14px;
+      margin-top: 6px;
+      opacity: 0.95;
+      font-weight: 500;
+    }
+
+    /* 結果內容 */
+    .result-content {
+      padding: 24px;
+    }
+
+    .result-section {
+      margin-bottom: 28px;
+    }
+
+    .result-section:last-child {
+      margin-bottom: 0;
+    }
+
+    .result-section-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: #1a1a1a;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .result-section-icon {
+      font-size: 18px;
+    }
+
+    /* 患者獲益列表 */
+    .benefit-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .benefit-item {
+      padding: 12px;
+      margin-bottom: 8px;
+      background: #f0f6ff;
+      border-left: 4px solid #0066cc;
+      border-radius: 6px;
+      font-size: 15px;
+      color: #333;
+      line-height: 1.5;
+    }
+
+    .benefit-item strong {
+      color: #0066cc;
+      font-weight: 600;
+    }
+
+    /* 數據表格 */
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 12px;
+    }
+
+    .data-table th {
+      background: #f5f5f5;
+      padding: 12px;
+      text-align: left;
+      font-weight: 700;
+      font-size: 13px;
+      color: #555;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      border-bottom: 2px solid #e0e0e0;
+    }
+
+    .data-table td {
+      padding: 14px 12px;
+      border-bottom: 1px solid #e0e0e0;
+      font-size: 15px;
+      color: #333;
+    }
+
+    .data-table td strong {
+      color: #0066cc;
+      font-weight: 700;
+      font-size: 16px;
+    }
+
+    .data-highlight {
+      background: #fff3cd;
+      padding: 14px;
+      border-radius: 8px;
+      border-left: 4px solid #f59e0b;
+      font-size: 15px;
+      color: #666;
+      margin-bottom: 12px;
+      line-height: 1.6;
+    }
+
+    .data-highlight strong {
+      color: #d97706;
+      font-weight: 700;
+    }
+
+    /* 給付狀態徽章 */
+    .payment-badge {
+      padding: 18px;
+      border-radius: 10px;
+      text-align: center;
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 1.6;
+    }
+
+    .payment-badge.covered {
+      background: #ecfdf5;
+      color: #065f46;
+      border: 2px solid #6ee7b7;
+    }
+
+    .payment-badge.selfpay {
+      background: #fef3c7;
+      color: #92400e;
+      border: 2px solid #fcd34d;
+    }
+
+    .payment-badge .status-icon {
+      font-size: 28px;
+      margin-bottom: 4px;
+    }
+
+    .payment-badge .status-text {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .payment-badge .status-detail {
+      font-size: 13px;
+      opacity: 0.85;
+      font-weight: 500;
+    }
+
+    /* 行動按鈕 */
+    .result-actions {
+      display: flex;
+      gap: 12px;
+      padding-top: 20px;
+      border-top: 1px solid #e0e0e0;
+    }
+
+    .btn-secondary {
+      flex: 1;
+      padding: 14px;
+      font-size: 14px;
+      font-weight: 700;
+      border: 2px solid #0066cc;
+      background: white;
+      color: #0066cc;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .btn-secondary:active {
+      background: #f0f6ff;
+      transform: translateY(1px);
+    }
+
+    /* 隱藏類 */
+    .hidden {
+      display: none !important;
+    }
+
+    /* 呼吸效果 */
+    .pulse {
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.7; }
+    }
+
+    /* ========== 回應式設計 ========== */
+    @media (max-width: 480px) {
+      header h1 {
+        font-size: 24px;
+      }
+
+      .diagnosis-form {
+        padding: 20px;
+      }
+
+      .result-header {
+        padding: 24px 20px;
+      }
+
+      .result-content {
+        padding: 20px;
+      }
+
+      .result-header h2 {
+        font-size: 20px;
+      }
+
+      .btn {
+        padding: 14px;
+        font-size: 16px;
+      }
+    }
+
+    /* ========== 深色模式支持 ========== */
+    @media (prefers-color-scheme: dark) {
+      html, body {
+        background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+        color: #e0e0e0;
+      }
+
+      .diagnosis-form {
+        background: #2d2d2d;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+      }
+
+      .radio-option {
+        background: #3d3d3d;
+        border-color: #444;
+      }
+
+      .radio-option:hover {
+        background: #1a3a5c;
+        border-color: #0066cc;
+      }
+
+      .radio-option label {
+        color: #e0e0e0;
+      }
+
+      .input-group input[type="number"] {
+        background: #3d3d3d;
+        color: #e0e0e0;
+        border-color: #444;
+      }
+
+      .result-card {
+        background: #2d2d2d;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+      }
+
+      .benefit-item {
+        background: #1a3a5c;
+        color: #e0e0e0;
+      }
+
+      .data-table th {
+        background: #3d3d3d;
+        color: #aaa;
+      }
+
+      .data-table td {
+        color: #e0e0e0;
+      }
+
+      header h1 {
+        color: #e0e0e0;
+      }
+
+      header p {
+        color: #aaa;
+      }
+    }
+
+    /* 列印樣式 */
+    @media print {
+      html, body {
+        background: white;
+      }
+
+      .diagnosis-form {
+        display: none;
+      }
+
+      .result-card {
+        box-shadow: none;
+        page-break-inside: avoid;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <!-- 標題 -->
+  <header>
+    <h1>🔍 1 分鐘診斷卡</h1>
+    <p>Enzalutamide 臨床決策工具 — 30 秒看結果</p>
+  </header>
+
+  <!-- 輸入表單 -->
+  <form id="diagnosisForm" class="diagnosis-form">
+    <!-- Section 1: 病人現況 -->
+    <div class="form-section">
+      <div class="form-section-title">
+        <span class="form-section-icon">1️⃣</span>
+        病人現況
+      </div>
+      <div class="radio-group">
+        <label class="radio-option">
+          <input type="radio" name="stage" value="bcr" required>
+          <label>根治性治療後 PSA 復發</label>
+        </label>
+        <label class="radio-option">
+          <input type="radio" name="stage" value="mcspc">
+          <label>新診斷轉移性疾病</label>
+        </label>
+        <label class="radio-option">
+          <input type="radio" name="stage" value="nmcrpc">
+          <label>無轉移，去勢抗性（PSADT 短）</label>
+        </label>
+        <label class="radio-option">
+          <input type="radio" name="stage" value="mcrpc">
+          <label>已轉移，去勢抗性</label>
+        </label>
+      </div>
+    </div>
+
+    <!-- Section 2: 關鍵參數 -->
+    <div class="form-section">
+      <div class="form-section-title">
+        <span class="form-section-icon">2️⃣</span>
+        關鍵參數
+      </div>
+      <div class="input-row">
+        <div class="input-group">
+          <label>PSADT（個月）</label>
+          <input type="number" id="psadt" name="psadt" placeholder="例：6" min="0" max="100">
+        </div>
+        <div class="input-group">
+          <label>Gleason</label>
+          <input type="number" id="gleason" name="gleason" placeholder="例：8" min="6" max="10">
+        </div>
+      </div>
+      <div class="checkbox-option">
+        <input type="checkbox" id="hasMetastasis" name="hasMetastasis">
+        <label for="hasMetastasis">有轉移</label>
+      </div>
+      <div class="checkbox-option">
+        <input type="checkbox" id="hasVisceral" name="hasVisceral">
+        <label for="hasVisceral">內臟轉移</label>
+      </div>
+    </div>
+
+    <!-- Section 3: 治療史 -->
+    <div class="form-section">
+      <div class="form-section-title">
+        <span class="form-section-icon">3️⃣</span>
+        先前治療
+      </div>
+      <div class="radio-group">
+        <label class="radio-option">
+          <input type="radio" name="priorArpi" value="none" checked required>
+          <label>未用過 ARPI</label>
+        </label>
+        <label class="radio-option">
+          <input type="radio" name="priorArpi" value="abi">
+          <label>用過 Abiraterone</label>
+        </label>
+        <label class="radio-option">
+          <input type="radio" name="priorArpi" value="apa">
+          <label>用過 Apalutamide</label>
+        </label>
+        <label class="radio-option">
+          <input type="radio" name="priorArpi" value="other">
+          <label>用過其他 ARPI</label>
+        </label>
+      </div>
+    </div>
+
+    <!-- 提交按鈕 -->
+    <button type="button" onclick="diagnose()" class="btn btn-primary">
+      ⚡ 立即看結果
+    </button>
+  </form>
+
+  <!-- 結果卡片 -->
+  <div id="resultCard" class="result-card hidden">
+    <!-- 頭部 -->
+    <div id="resultHeader" class="result-header">
+      <div class="result-icon">✅</div>
+      <h2 id="scenarioName">場景名稱</h2>
+      <p id="scenarioDesc">場景描述</p>
+    </div>
+
+    <!-- 內容 -->
+    <div class="result-content">
+      <!-- 患者獲益 -->
+      <div class="result-section">
+        <div class="result-section-title">
+          <span class="result-section-icon">💊</span>
+          患者獲益
+        </div>
+        <ul id="benefitsList" class="benefit-list"></ul>
+      </div>
+
+      <!-- 核心數據 -->
+      <div class="result-section">
+        <div class="result-section-title">
+          <span class="result-section-icon">📊</span>
+          核心數據
+        </div>
+        <div id="dataDisplay"></div>
+      </div>
+
+      <!-- 給付狀態 -->
+      <div class="result-section">
+        <div class="result-section-title">
+          <span class="result-section-icon">💰</span>
+          給付狀態
+        </div>
+        <div id="paymentStatus" class="payment-badge"></div>
+      </div>
+
+      <!-- 行動按鈕 -->
+      <div class="result-actions">
+        <button type="button" class="btn-secondary" onclick="printResult()">
+          🖨️ 列印
+        </button>
+        <button type="button" class="btn-secondary" onclick="shareResult()">
+          📤 分享
+        </button>
+        <button type="button" class="btn-secondary" onclick="resetForm()">
+          🔄 重新診斷
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- JavaScript -->
+<script>
+  const scenariosData = {
+    bcr: {
+      name: "High-risk BCR / nmCSPC",
+      desc: "根治性治療後高風險生化復發",
+      icon: "⚠️",
+      benefits: [
+        "延遲轉移 <strong>2-3 年</strong>",
+        "85% 患者 <strong>PSA 不可測</strong>",
+        "可能進行 <strong>Treatment Holiday</strong>（治療暫停）",
+        "主動出擊，消除生化焦慮"
+      ],
+      dataHtml: `
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>研究</th>
+              <th>EMBARK（Phase 3）</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>族群</strong></td>
+              <td>高風險 BCR，PSADT ≤9 個月</td>
+            </tr>
+            <tr>
+              <td><strong>MFS（無進展生存期）</strong></td>
+              <td><strong>未到達中位數</strong> vs 對照組 ~11 個月</td>
+            </tr>
+            <tr>
+              <td><strong>OS（整體生存期）</strong></td>
+              <td><strong>HR 0.60</strong>（延長 ~10-12 個月，8 年追蹤）</td>
+            </tr>
+            <tr>
+              <td><strong>PSA 反應</strong></td>
+              <td><strong>85% 患者達 PSA 不可測</strong></td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="data-highlight">
+          <strong>🎯 臨床意義：</strong>打破傳統「等待轉移」的思維。在 PSA 快速上升階段就介入，可顯著延後轉移、改善整體生存期，並為治療暫停創造可能。
+        </div>
+      `,
+      payment: "selfpay",
+      paymentText: "❌ 自費或 TUA",
+      paymentDetail: "台灣健保未明確列為主要給付適應症"
+    },
+
+    mcspc: {
+      name: "High-risk mCSPC",
+      desc: "高風險轉移性去勢敏感性前列腺癌",
+      icon: "✅",
+      benefits: [
+        "整體生存期延長 <strong>~3 年</strong>",
+        "5 年生存率提升 <strong>12 個百分點</strong>（65.5% vs 53.4%）",
+        "疾病進展延遲，維持生活品質",
+        "強化治療，改善預後"
+      ],
+      dataHtml: `
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>研究</th>
+              <th>ARCHES（Phase 3）</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>族群</strong></td>
+              <td>mCSPC（含高體積與低體積）</td>
+            </tr>
+            <tr>
+              <td><strong>5 年 OS</strong></td>
+              <td><strong>65.5% vs 53.4%</strong>（絕對獲益 12%）</td>
+            </tr>
+            <tr>
+              <td><strong>HR（OS）</strong></td>
+              <td><strong>0.70</strong>（降低 30% 死亡風險）</td>
+            </tr>
+            <tr>
+              <td><strong>高體積患者</strong></td>
+              <td>OS 延長 <strong>~36 個月</strong></td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="data-highlight">
+          <strong>🎯 臨床意義：</strong>ARCHES 證實，所有 mCSPC 患者（無論高/低體積）都能從強化治療獲益。這支持國際指引推薦 ADT + ARPI。
+        </div>
+      `,
+      payment: "covered",
+      paymentText: "✅ 健保給付",
+      paymentDetail: "高風險患者可申報，需符合健保高風險定義"
+    },
+
+    nmcrpc: {
+      name: "High-risk nmCRPC",
+      desc: "高風險非轉移性去勢抗性前列腺癌",
+      icon: "✅",
+      benefits: [
+        "延遲轉移 <strong>22 個月</strong>",
+        "轉移或死亡風險降低 <strong>71%</strong>",
+        "維持無轉移時間更久，推遲化療",
+        "成熟指標，臨床效果穩定"
+      ],
+      dataHtml: `
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>研究</th>
+              <th>PROSPER（Phase 3）</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>族群</strong></td>
+              <td>nmCRPC，PSADT ≤10 個月</td>
+            </tr>
+            <tr>
+              <td><strong>MFS（中位值）</strong></td>
+              <td><strong>36.6 個月 vs 14.7 個月</strong>（延遲 22 個月）</td>
+            </tr>
+            <tr>
+              <td><strong>風險降低</strong></td>
+              <td><strong>71% 降低</strong>轉移或死亡風險</td>
+            </tr>
+            <tr>
+              <td><strong>PSA 進展</strong></td>
+              <td>中位時間 <strong>37.2 vs 3.9 個月</strong></td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="data-highlight">
+          <strong>🎯 臨床意義：</strong>PROSPER 證實，早期介入高風險 nmCRPC 患者能顯著延遲轉移。這是目前最成熟、證據最充分的適應症之一。
+        </div>
+      `,
+      payment: "covered",
+      paymentText: "✅ 健保給付",
+      paymentDetail: "符合高風險與 PSADT ≤10 個月可申報"
+    },
+
+    mcrpc: {
+      name: "mCRPC（化療前）",
+      desc: "無症狀或輕度症狀轉移性去勢抗性前列腺癌",
+      icon: "✅",
+      benefits: [
+        "延遲化療 <strong>約 17 個月</strong>",
+        "維持生活品質更久，避免早期化療毒性",
+        "保留未來治療選項",
+        "適合排斥化療的患者"
+      ],
+      dataHtml: `
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>研究</th>
+              <th>PREVAIL（Phase 3）</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>族群</strong></td>
+              <td>化療前 mCRPC，無症狀/輕度症狀</td>
+            </tr>
+            <tr>
+              <td><strong>中位化療時間</strong></td>
+              <td><strong>28 個月 vs 10.8 個月</strong>（延遲 17 個月）</td>
+            </tr>
+            <tr>
+              <td><strong>死亡風險</strong></td>
+              <td><strong>降低 29%</strong></td>
+            </tr>
+            <tr>
+              <td><strong>軟組織反應率</strong></td>
+              <td>59% vs 5%（對照組）</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="data-highlight">
+          <strong>🎯 臨床意義：</strong>PREVAIL 顯示，ENZ 能有效延遲化療 17 個月。對於排斥或無法耐受化療的患者，提供了有尊嚴的生存期延長。
+        </div>
+      `,
+      payment: "covered",
+      paymentText: "✅ 健保給付",
+      paymentDetail: "需符合健保審查條件（ECOG 0-1 等）"
+    }
+  };
+
+  // 診斷邏輯
+  function diagnose() {
+    const stage = document.querySelector('input[name="stage"]:checked')?.value;
+    const psadt = parseFloat(document.getElementById('psadt').value) || 0;
+    const gleason = parseFloat(document.getElementById('gleason').value) || 0;
+    const hasMetastasis = document.getElementById('hasMetastasis').checked;
+    const hasVisceral = document.getElementById('hasVisceral').checked;
+    const priorArpi = document.querySelector('input[name="priorArpi"]:checked')?.value;
+
+    if (!stage) {
+      alert('請先選擇病人現況');
+      return;
+    }
+
+    let scenario = stage;
+
+    // 判斷邏輯
+    if (stage === 'bcr' && psadt <= 9 && psadt > 0) {
+      scenario = 'bcr';
+    } else if (stage === 'bcr') {
+      alert('BCR 患者需符合 PSADT ≤ 9 個月，請確認資料');
+      return;
+    }
+
+    if (stage === 'mcspc' && hasMetastasis) {
+      scenario = 'mcspc';
+    } else if (stage === 'mcspc' && !hasMetastasis) {
+      alert('mCSPC 應有轉移，請確認');
+      return;
+    }
+
+    if (stage === 'nmcrpc' && psadt <= 10 && psadt > 0) {
+      scenario = 'nmcrpc';
+    } else if (stage === 'nmcrpc') {
+      alert('nmCRPC 需符合 PSADT ≤ 10 個月');
+      return;
+    }
+
+    if (stage === 'mcrpc' && hasMetastasis) {
+      scenario = 'mcrpc';
+    }
+
+    // 顯示結果
+    displayResult(scenario);
+  }
+
+  // 顯示結果
+  function displayResult(scenarioKey) {
+    const data = scenariosData[scenarioKey];
+
+    // 更新頭部
+    const header = document.getElementById('resultHeader');
+    header.innerHTML = `
+      <div class="result-icon">${data.icon}</div>
+      <h2 id="scenarioName">${data.name}</h2>
+      <p id="scenarioDesc">${data.desc}</p>
+    `;
+
+    if (data.payment === 'selfpay') {
+      header.classList.add('selfpay');
+    } else {
+      header.classList.remove('selfpay');
+    }
+
+    // 患者獲益
+    const benefitsList = document.getElementById('benefitsList');
+    benefitsList.innerHTML = data.benefits
+      .map(b => `<li class="benefit-item">${b}</li>`)
+      .join('');
+
+    // 數據顯示
+    document.getElementById('dataDisplay').innerHTML = data.dataHtml;
+
+    // 給付狀態
+    const paymentEl = document.getElementById('paymentStatus');
+    paymentEl.className = `payment-badge ${data.payment}`;
+    paymentEl.innerHTML = `
+      <div class="status-icon">${data.payment === 'covered' ? '✅' : '❌'}</div>
+      <div class="status-text">${data.paymentText}</div>
+      <div class="status-detail">${data.paymentDetail}</div>
+    `;
+
+    // 顯示結果卡片
+    document.getElementById('resultCard').classList.remove('hidden');
+
+    // 平滑滾動到結果
+    setTimeout(() => {
+      document.getElementById('resultCard').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 100);
+  }
+
+  // 列印結果
+  function printResult() {
+    window.print();
+  }
+
+  // 分享結果
+  function shareResult() {
+    const scenarioName = document.getElementById('scenarioName').textContent;
+    const text = `我的病人符合：${scenarioName}\n\n使用 Enzalutamide 1 分鐘診斷卡查看`;
+
+    if (navigator.share) {
+      navigator.share({
+        title: 'Enzalutamide 診斷結果',
+        text: text,
+      });
+    } else {
+      alert(text);
+    }
+  }
+
+  // 重新診斷
+  function resetForm() {
+    document.getElementById('diagnosisForm').reset();
+    document.getElementById('resultCard').classList.add('hidden');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  // PWA 支持
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/sw.js').catch(() => {});
+  }
+</script>
+
+</body>
+</html>
