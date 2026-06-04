@@ -1,4 +1,4 @@
-import './style.css'
+import './styles/main.css'
 
 // ================================================
 // Patient Finder — 情境資料庫

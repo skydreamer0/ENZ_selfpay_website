@@ -6,14 +6,14 @@ export default defineConfig({
   build: {
     rollupOptions: {
       input: {
-        main:      resolve(__dirname, 'index.html'),
-        disease:   resolve(__dirname, 'disease.html'),
-        pathway:   resolve(__dirname, 'pathway.html'),
-        drug:      resolve(__dirname, 'drug-enzalutamide.html'),
-        evidence:  resolve(__dirname, 'evidence.html'),
-        faq:       resolve(__dirname, 'faq.html'),
-        diagnosis: resolve(__dirname, 'diagnosis.html'),
-        reference: resolve(__dirname, 'reference-guide.html'),
+        main:      resolve(__dirname, 'src/pages/index.html'),
+        disease:   resolve(__dirname, 'src/pages/disease.html'),
+        pathway:   resolve(__dirname, 'src/pages/pathway.html'),
+        drug:      resolve(__dirname, 'src/pages/drug-enzalutamide.html'),
+        evidence:  resolve(__dirname, 'src/pages/evidence.html'),
+        faq:       resolve(__dirname, 'src/pages/faq.html'),
+        diagnosis: resolve(__dirname, 'src/pages/diagnosis.html'),
+        reference: resolve(__dirname, 'src/pages/reference-guide.html'),
       },
     },
   },
