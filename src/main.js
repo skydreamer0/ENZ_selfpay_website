@@ -135,19 +135,32 @@ function pfRenderResult(key) {
 // ================================================
 document.addEventListener('DOMContentLoaded', () => {
 
-  // === Mobile Navigation Toggle ===
+  // === Mobile Navigation Toggle — 全螢幕選單 ===
   const hamburger = document.querySelector('.header__hamburger')
   const nav = document.querySelector('.header__nav')
+
+  function openNav() {
+    nav.classList.add('open')
+    hamburger.textContent = '✕'
+    document.body.style.overflow = 'hidden'
+  }
+
+  function closeNav() {
+    nav.classList.remove('open')
+    hamburger.textContent = '☰'
+    document.body.style.overflow = ''
+  }
+
   if (hamburger && nav) {
     hamburger.addEventListener('click', () => {
-      nav.classList.toggle('open')
-      hamburger.textContent = nav.classList.contains('open') ? '✕' : '☰'
+      nav.classList.contains('open') ? closeNav() : openNav()
     })
     nav.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        nav.classList.remove('open')
-        hamburger.textContent = '☰'
-      })
+      link.addEventListener('click', closeNav)
+    })
+    // ESC 鍵關閉
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape' && nav.classList.contains('open')) closeNav()
     })
   }
 
