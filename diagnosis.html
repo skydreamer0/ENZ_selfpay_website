@@ -101,26 +101,59 @@
       background: #f0f6ff;
     }
 
+    .radio-option:active {
+      background: #dbeafe;
+      border-color: #0044aa;
+      transform: scale(0.99);
+    }
+
+    /* 已選中狀態（:has() 支援 Chrome 105+, Safari 15.4+, Firefox 121+） */
+    .radio-option:has(input:checked) {
+      border-color: #0066cc;
+      background: #f0f6ff;
+    }
+
     .radio-option input[type="radio"] {
       width: 20px;
       height: 20px;
+      min-width: 20px;
       margin-right: 12px;
       cursor: pointer;
       accent-color: #0066cc;
+      flex-shrink: 0;
     }
 
-    .radio-option label {
+    .radio-option span.option-label {
       flex: 1;
       font-size: 16px;
       color: #333;
       font-weight: 500;
       cursor: pointer;
-      margin: 0;
+      line-height: 1.4;
     }
 
-    .radio-option input[type="radio"]:checked + label {
+    .radio-option:has(input:checked) span.option-label {
       color: #0066cc;
       font-weight: 600;
+    }
+
+    /* 驗證提示（取代 alert） */
+    .validation-msg {
+      display: none;
+      padding: 12px 16px;
+      background: #fef3c7;
+      border-left: 4px solid #f59e0b;
+      border-radius: 6px;
+      margin-bottom: 12px;
+      font-size: 14px;
+      color: #92400e;
+      font-weight: 500;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .validation-msg.visible {
+      display: flex;
     }
 
     /* 數字輸入 */
@@ -564,19 +597,19 @@
       <div class="radio-group">
         <label class="radio-option">
           <input type="radio" name="stage" value="bcr" required>
-          <label>根治性治療後 PSA 復發</label>
+          <span class="option-label">根治性治療後 PSA 復發</span>
         </label>
         <label class="radio-option">
           <input type="radio" name="stage" value="mcspc">
-          <label>新診斷轉移性疾病</label>
+          <span class="option-label">新診斷轉移性疾病</span>
         </label>
         <label class="radio-option">
           <input type="radio" name="stage" value="nmcrpc">
-          <label>無轉移，去勢抗性（PSADT 短）</label>
+          <span class="option-label">無轉移，去勢抗性（PSADT 短）</span>
         </label>
         <label class="radio-option">
           <input type="radio" name="stage" value="mcrpc">
-          <label>已轉移，去勢抗性</label>
+          <span class="option-label">已轉移，去勢抗性</span>
         </label>
       </div>
     </div>
@@ -616,22 +649,25 @@
       <div class="radio-group">
         <label class="radio-option">
           <input type="radio" name="priorArpi" value="none" checked required>
-          <label>未用過 ARPI</label>
+          <span class="option-label">未用過 ARPI</span>
         </label>
         <label class="radio-option">
           <input type="radio" name="priorArpi" value="abi">
-          <label>用過 Abiraterone</label>
+          <span class="option-label">用過 Abiraterone</span>
         </label>
         <label class="radio-option">
           <input type="radio" name="priorArpi" value="apa">
-          <label>用過 Apalutamide</label>
+          <span class="option-label">用過 Apalutamide</span>
         </label>
         <label class="radio-option">
           <input type="radio" name="priorArpi" value="other">
-          <label>用過其他 ARPI</label>
+          <span class="option-label">用過其他 ARPI</span>
         </label>
       </div>
     </div>
+
+    <!-- 驗證提示 -->
+    <div class="validation-msg" id="validationMsg"></div>
 
     <!-- 提交按鈕 -->
     <button type="button" onclick="diagnose()" class="btn btn-primary">
@@ -941,6 +977,19 @@
     }
   };
 
+  // 顯示 inline 驗證訊息（取代 alert）
+  function showValidation(msg) {
+    const el = document.getElementById('validationMsg');
+    el.textContent = msg;
+    el.classList.add('visible');
+    el.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    setTimeout(() => el.classList.remove('visible'), 5000);
+  }
+
+  function hideValidation() {
+    document.getElementById('validationMsg').classList.remove('visible');
+  }
+
   // 診斷邏輯
   function diagnose() {
     const stage = document.querySelector('input[name="stage"]:checked')?.value;
@@ -951,31 +1000,32 @@
     const priorArpi = document.querySelector('input[name="priorArpi"]:checked')?.value;
 
     if (!stage) {
-      alert('請先選擇病人現況');
+      showValidation('⚠️ 請先選擇「病人現況」（步驟 1）');
       return;
     }
 
+    hideValidation();
     let scenario = stage;
 
     // 判斷邏輯
     if (stage === 'bcr' && psadt <= 9 && psadt > 0) {
       scenario = 'bcr';
     } else if (stage === 'bcr') {
-      alert('BCR 患者需符合 PSADT ≤ 9 個月，請確認資料');
+      showValidation('⚠️ BCR 患者需符合 PSADT ≤ 9 個月，請確認並填入 PSADT 數值');
       return;
     }
 
     if (stage === 'mcspc' && hasMetastasis) {
       scenario = 'mcspc';
     } else if (stage === 'mcspc' && !hasMetastasis) {
-      alert('mCSPC 應有轉移，請確認');
+      showValidation('⚠️ mCSPC 應有轉移，請勾選「有轉移」選項確認');
       return;
     }
 
     if (stage === 'nmcrpc' && psadt <= 10 && psadt > 0) {
       scenario = 'nmcrpc';
     } else if (stage === 'nmcrpc') {
-      alert('nmCRPC 需符合 PSADT ≤ 10 個月');
+      showValidation('⚠️ nmCRPC 需符合 PSADT ≤ 10 個月，請確認並填入 PSADT 數值');
       return;
     }
 
@@ -1049,15 +1099,17 @@
   // 分享結果
   function shareResult() {
     const scenarioName = document.getElementById('scenarioName').textContent;
-    const text = `我的病人符合：${scenarioName}\n\n使用 Enzalutamide 1 分鐘診斷卡查看`;
+    const text = `病人符合：${scenarioName}\n\nEnzalutamide 1 分鐘診斷卡`;
 
     if (navigator.share) {
-      navigator.share({
-        title: 'Enzalutamide 診斷結果',
-        text: text,
+      navigator.share({ title: 'Enzalutamide 診斷結果', text });
+    } else if (navigator.clipboard) {
+      navigator.clipboard.writeText(text).then(() => {
+        const btn = event.currentTarget;
+        const orig = btn.textContent;
+        btn.textContent = '✓ 已複製';
+        setTimeout(() => { btn.textContent = orig; }, 2000);
       });
-    } else {
-      alert(text);
     }
   }
 
