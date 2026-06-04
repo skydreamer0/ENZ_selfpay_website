@@ -96,45 +96,168 @@
 <section class="section section--gray" id="patient-finder">
   <div class="container">
     <p class="section__label">Patient Finder</p>
-    <h2>三步驟病人篩選器</h2>
+    <h2>三步驟快速篩選</h2>
+    <p style="color:var(--color-gray-80);font-size:0.9375rem;margin-bottom:var(--space-6);max-width:60ch;">依據疾病階段與臨床特徵，即時判斷病人是否適合討論自費早期 ARPI 強化治療。</p>
+
     <div class="finder-card">
-      <div class="grid-3">
-        <div class="finder-step">
-          <div class="finder-step__header">Step 1：目前疾病階段？</div>
-          <div class="finder-step__body">
-            <label class="checkbox-label"><input type="radio" name="step1" value="bcr"> BCR</label>
-            <label class="checkbox-label"><input type="radio" name="step1" value="nmcrpc"> nmCRPC</label>
-            <label class="checkbox-label"><input type="radio" name="step1" value="mcspc"> mCSPC</label>
-            <label class="checkbox-label"><input type="radio" name="step1" value="mcrpc"> mCRPC</label>
+
+      <!-- Step 1: 疾病階段 -->
+      <div class="pf-section">
+        <div class="pf-section__header">
+          <div class="pf-section__num">1</div>
+          <div class="pf-section__meta">
+            <p class="pf-section__title">疾病階段</p>
+            <p class="pf-section__desc">病人目前的前列腺癌進展狀態</p>
           </div>
         </div>
-        <div class="finder-step">
-          <div class="finder-step__header">Step 2：目前健保是否可給付？</div>
-          <div class="finder-step__body">
-            <label class="checkbox-label"><input type="radio" name="step2" value="yes"> 可給付</label>
-            <label class="checkbox-label"><input type="radio" name="step2" value="review"> 需事前審查</label>
-            <label class="checkbox-label"><input type="radio" name="step2" value="no"> 不符合目前給付條件</label>
-            <label class="checkbox-label"><input type="radio" name="step2" value="unknown"> 尚不確定</label>
+        <div class="selector-grid">
+          <label class="selector-card">
+            <input type="radio" name="pf_stage" value="bcr">
+            <div class="selector-card__radio"></div>
+            <div class="selector-card__body">
+              <div class="selector-card__title">高風險 BCR</div>
+              <div class="selector-card__desc">局部治療後 PSA 復發，影像轉移陰性，PSADT ≤ 9 個月</div>
+            </div>
+          </label>
+          <label class="selector-card">
+            <input type="radio" name="pf_stage" value="nmcrpc">
+            <div class="selector-card__radio"></div>
+            <div class="selector-card__body">
+              <div class="selector-card__title">nmCRPC</div>
+              <div class="selector-card__desc">去勢抵抗但影像陰性，PSADT ≤ 10 個月</div>
+            </div>
+          </label>
+          <label class="selector-card">
+            <input type="radio" name="pf_stage" value="mcspc">
+            <div class="selector-card__radio"></div>
+            <div class="selector-card__body">
+              <div class="selector-card__title">mCSPC（低體積）</div>
+              <div class="selector-card__desc">轉移性去勢敏感，骨轉移 ≤ 3 處，無內臟轉移</div>
+            </div>
+          </label>
+          <label class="selector-card">
+            <input type="radio" name="pf_stage" value="mcrpc">
+            <div class="selector-card__radio"></div>
+            <div class="selector-card__body">
+              <div class="selector-card__title">mCRPC</div>
+              <div class="selector-card__desc">轉移性去勢抵抗，化療前或 chemo-naïve</div>
+            </div>
+          </label>
+        </div>
+      </div>
+
+      <!-- Step 2: 健保給付 -->
+      <div class="pf-section">
+        <div class="pf-section__header">
+          <div class="pf-section__num">2</div>
+          <div class="pf-section__meta">
+            <p class="pf-section__title">健保給付狀況</p>
+            <p class="pf-section__desc">病人目前 ARPI 的健保可及性</p>
           </div>
         </div>
-        <div class="finder-step">
-          <div class="finder-step__header">Step 3：是否有自費討論空間？</div>
-          <div class="finder-step__body">
-            <label class="checkbox-label"><input type="checkbox" name="step3"> PSA 快速上升</label>
-            <label class="checkbox-label"><input type="checkbox" name="step3"> 低體積轉移</label>
-            <label class="checkbox-label"><input type="checkbox" name="step3"> 不願化療</label>
-            <label class="checkbox-label"><input type="checkbox" name="step3"> 共病多，不適合 steroid-based regimen</label>
-            <label class="checkbox-label"><input type="checkbox" name="step3"> 對疾病進展高度焦慮</label>
-          </div>
+        <div class="selector-grid">
+          <label class="selector-card">
+            <input type="radio" name="pf_coverage" value="yes">
+            <div class="selector-card__radio"></div>
+            <div class="selector-card__body">
+              <div class="selector-card__title">符合給付條件</div>
+              <div class="selector-card__desc">可申請健保給付，無明顯障礙</div>
+            </div>
+          </label>
+          <label class="selector-card">
+            <input type="radio" name="pf_coverage" value="review">
+            <div class="selector-card__radio"></div>
+            <div class="selector-card__body">
+              <div class="selector-card__title">需事前審查</div>
+              <div class="selector-card__desc">nmCRPC 符合條件，但需送件審查等待</div>
+            </div>
+          </label>
+          <label class="selector-card">
+            <input type="radio" name="pf_coverage" value="no">
+            <div class="selector-card__radio"></div>
+            <div class="selector-card__body">
+              <div class="selector-card__title">目前不符合給付</div>
+              <div class="selector-card__desc">不符合現行健保 ARPI 給付條件</div>
+            </div>
+          </label>
+          <label class="selector-card">
+            <input type="radio" name="pf_coverage" value="unknown">
+            <div class="selector-card__radio"></div>
+            <div class="selector-card__body">
+              <div class="selector-card__title">尚未確認</div>
+              <div class="selector-card__desc">給付資格仍需進一步評估確認</div>
+            </div>
+          </label>
         </div>
       </div>
-      <div class="finder-result mt-5" id="finderResult" style="display:none; background: #DEFBE6; padding: 16px; border-left: 4px solid #198038;">
-        <h4 style="color:#044317; margin-bottom:8px;">評估結果：可討論早期 ARPI 強化治療</h4>
-        <p style="margin:0; font-size:14px; color:#044317;">建議醫師進一步評估病人臨床條件與後續治療策略。</p>
+
+      <!-- Step 3: 臨床特徵 -->
+      <div class="pf-section">
+        <div class="pf-section__header">
+          <div class="pf-section__num">3</div>
+          <div class="pf-section__meta">
+            <p class="pf-section__title">臨床特徵（可複選）</p>
+            <p class="pf-section__desc">影響自費討論優先程度的臨床因素</p>
+          </div>
+        </div>
+        <div class="selector-grid">
+          <label class="selector-card is-checkbox">
+            <input type="checkbox" name="pf_factors" value="psa_rapid">
+            <div class="selector-card__radio"></div>
+            <div class="selector-card__body">
+              <div class="selector-card__title">PSA 快速倍增</div>
+              <div class="selector-card__desc">PSADT ≤ 9 個月，疾病進展風險高</div>
+            </div>
+          </label>
+          <label class="selector-card is-checkbox">
+            <input type="checkbox" name="pf_factors" value="chemo_averse">
+            <div class="selector-card__radio"></div>
+            <div class="selector-card__body">
+              <div class="selector-card__title">不願 / 不適合化療</div>
+              <div class="selector-card__desc">年長、共病多或主觀排斥化療副作用</div>
+            </div>
+          </label>
+          <label class="selector-card is-checkbox">
+            <input type="checkbox" name="pf_factors" value="no_steroid">
+            <div class="selector-card__radio"></div>
+            <div class="selector-card__body">
+              <div class="selector-card__title">不適合類固醇方案</div>
+              <div class="selector-card__desc">糖尿病、感染風險高，偏好無 steroid 選項</div>
+            </div>
+          </label>
+          <label class="selector-card is-checkbox">
+            <input type="checkbox" name="pf_factors" value="long_life">
+            <div class="selector-card__radio"></div>
+            <div class="selector-card__body">
+              <div class="selector-card__title">預期壽命較長 / PS 良好</div>
+              <div class="selector-card__desc">希望最大化疾病控制時間，積極治療意願強</div>
+            </div>
+          </label>
+          <label class="selector-card is-checkbox">
+            <input type="checkbox" name="pf_factors" value="anxiety">
+            <div class="selector-card__radio"></div>
+            <div class="selector-card__body">
+              <div class="selector-card__title">對疾病進展高度焦慮</div>
+              <div class="selector-card__desc">主動要求積極治療，PSA 數字讓病人心理負擔明顯</div>
+            </div>
+          </label>
+        </div>
       </div>
-      <div class="mt-5 text-center">
-        <button class="btn btn--primary" id="btnAnalyze" onclick="document.getElementById('finderResult').style.display='block';">開始分析病人條件</button>
+
+      <!-- 驗證提示 -->
+      <div class="pf-validation" id="pfValidation">
+        ⚠&nbsp; 請至少選擇「疾病階段」（Step 1）才能進行評估。
       </div>
+
+      <!-- 提交按鈕 -->
+      <button class="btn btn--primary pf-submit" id="btnAnalyze" type="button">
+        評估自費獲益族群
+        <span class="btn__icon">→</span>
+      </button>
+
+      <!-- 評估結果 -->
+      <div class="pf-result" id="finderResult"></div>
+
     </div>
   </div>
 </section>
