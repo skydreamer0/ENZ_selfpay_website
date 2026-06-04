@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Enzalutamide 完整參考指南 2026：台灣給付、國際指引、試驗數據、臨床工具一站式查詢。" />
+  <title>ENZ 完整參考指南 — 台灣給付、國際指引、臨床證據</title>
+  <script type="module" src="/src/main.js"></script>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f5f7fa; }
+    .container { max-width: 900px; margin: 0 auto; padding: 20px; }
+
+    header { background: linear-gradient(135deg, #0066cc 0%, #004a99 100%); color: white; padding: 40px 20px; text-align: center; margin-bottom: 40px; border-radius: 12px; }
+    header h1 { font-size: 32px; margin-bottom: 8px; }
+    header p { font-size: 14px; opacity: 0.95; }
+
+    .banner { background: #fff3cd; border-left: 4px solid #f59e0b; padding: 16px; border-radius: 8px; margin-bottom: 24px; }
+    .banner strong { color: #d97706; }
+
+    .accordion { margin-bottom: 20px; }
+    .accordion__item { background: white; border: 1px solid #e0e0e0; border-radius: 8px; margin-bottom: 12px; overflow: hidden; }
+    .accordion__header {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 18px; cursor: pointer; background: #f9f9f9; border: none; width: 100%;
+      font-size: 16px; font-weight: 600; color: #1a1a1a; transition: all 0.2s;
+    }
+    .accordion__header:hover { background: #f0f6ff; }
+    .accordion__item.open .accordion__header { background: #e3f2ff; }
+    .accordion__body { display: none; padding: 20px; border-top: 1px solid #e0e0e0; }
+    .accordion__item.open .accordion__body { display: block; }
+    .accordion__icon { font-size: 18px; transition: transform 0.2s; }
+    .accordion__item.open .accordion__icon { transform: rotate(180deg); }
+
+    table { width: 100%; border-collapse: collapse; margin: 16px 0; }
+    th { background: #f0f0f0; padding: 12px; text-align: left; font-weight: 700; border-bottom: 2px solid #e0e0e0; }
+    td { padding: 12px; border-bottom: 1px solid #e0e0e0; }
+    tr:hover { background: #fafafa; }
+
+    .highlight { background: #fff3cd; padding: 14px; border-radius: 6px; margin: 12px 0; }
+    .highlight strong { color: #d97706; }
+
+    .checklist { list-style: none; padding: 0; }
+    .checklist li { padding: 8px 0; padding-left: 24px; position: relative; }
+    .checklist li:before { content: "☐"; position: absolute; left: 0; font-size: 18px; }
+
+    .card { background: white; padding: 16px; border-radius: 8px; border-left: 4px solid #0066cc; margin: 12px 0; }
+    .card.warning { border-left-color: #f59e0b; }
+    .card.success { border-left-color: #22c55e; }
+
+    .print-button { padding: 12px 20px; background: #0066cc; color: white; border: none; border-radius: 6px; cursor: pointer; font-weight: 600; }
+    .print-button:hover { background: #004a99; }
+
+    @media print {
+      body { background: white; }
+      .accordion__body { display: block !important; }
+      .accordion__header { background: #e3f2ff !important; }
+      .print-button { display: none; }
+    }
+
+    .summary-box { background: #e3f2ff; padding: 20px; border-radius: 8px; margin: 20px 0; border-left: 4px solid #0066cc; }
+    .summary-box h3 { color: #0066cc; margin-bottom: 12px; }
+  </style>
+</head>
+<body>
+
+<header class="header">
+  <div class="container">
+    <a href="index.html" style="color: white; text-decoration: none; display: inline-block; margin-bottom: 16px;">← 返回首頁</a>
+    <h1>📚 Enzalutamide 完整參考指南</h1>
+    <p>台灣給付、國際指引、試驗數據、臨床工具 — 2026/6/4 版</p>
+  </div>
+</header>
+
+<div class="container">
+  <!-- 執行摘要 -->
+  <div class="summary-box">
+    <h3>🎯 核心結論</h3>
+    <p><strong>台灣「可合法使用的病人族群」遠大於「健保可給付的族群」</strong></p>
+    <p style="margin-top: 8px; font-size: 14px; color: #555;">
+      台灣現行仿單涵蓋 5 大場景；但健保僅給付 4 個場景。最常見的自費切入點是：
+      高風險 BCR/nmCSPC、不符高風險定義的 mCSPC、超過 36 個月上限。
+    </p>
+  </div>
+
+  <!-- Accordion 1: 台灣給付對照表 -->
+  <div class="accordion">
+    <div class="accordion__item open">
+      <button class="accordion__header">
+        <span>1️⃣ 台灣給付狀態對照表</span>
+        <span class="accordion__icon">▾</span>
+      </button>
+      <div class="accordion__body">
+        <table>
+          <thead>
+            <tr>
+              <th>病人族群</th>
+              <th>台灣仿單</th>
+              <th>台灣健保</th>
+              <th>關鍵限制</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>高風險 nmCRPC</strong></td>
+              <td>✅ 可用</td>
+              <td>✅ 給付</td>
+              <td>PSADT ≤10 月；需事前審查</td>
+            </tr>
+            <tr>
+              <td><strong>高風險 mCSPC</strong></td>
+              <td>✅ 可用</td>
+              <td>✅ 給付</td>
+              <td>總療程限 36 個月；與 ADT 併用</td>
+            </tr>
+            <tr>
+              <td><strong>mCRPC 化療前</strong></td>
+              <td>✅ 可用</td>
+              <td>✅ 給付</td>
+              <td>無/輕症狀；ECOG 0–1</td>
+            </tr>
+            <tr>
+              <td><strong>mCRPC docetaxel 後</strong></td>
+              <td>✅ 可用</td>
+              <td>✅ 給付</td>
+              <td>ECOG ≤2；docetaxel ≥2 cycles</td>
+            </tr>
+            <tr style="background: #fff3cd;">
+              <td><strong>高風險 BCR / nmCSPC</strong></td>
+              <td>✅ 可用</td>
+              <td>❌ 不給付</td>
+              <td>自費或 TUA；PSADT ≤9 月</td>
+            </tr>
+            <tr>
+              <td><strong>已用過其他 ARPI</strong></td>
+              <td>視情況</td>
+              <td>❌ 原則不給付</td>
+              <td>「終生一種」限制；除非嚴重不耐受</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="highlight">
+          <strong>💡 實務重點：</strong>台灣健保的限制，核心不是「藥不能用」，而是適應症切得更窄、文件要求更細、新型荷爾蒙藥終生只給付一種。
+        </div>
+
+        <h4 style="margin-top: 20px; margin-bottom: 12px;">各場景的健保審查重點</h4>
+
+        <div class="card">
+          <strong>高風險 nmCRPC</strong>
+          <ul class="checklist" style="margin-top: 8px;">
+            <li>系列 PSA（至少 3 點）+ testosterone 數據</li>
+            <li>PSADT ≤10 月，依線性回歸計算</li>
+            <li>3 個月內 M0 影像（證明無遠端轉移）</li>
+            <li>ECOG ≤1；每 3 個月再申請</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <strong>高風險 mCSPC</strong>
+          <ul class="checklist" style="margin-top: 8px;">
+            <li>高風險 2/3：Gleason ≥8、骨轉移 ≥3 + 非脊柱/非骨盆、內臟轉移</li>
+            <li>與 ADT 併用；總療程限 36 個月</li>
+            <li>PSA/testosterone 序列數據</li>
+            <li>需事前審查與每 3 個月再申請</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <strong>mCRPC 化療前</strong>
+          <ul class="checklist" style="margin-top: 8px;">
+            <li>ECOG 0–1；無常規止痛藥使用紀錄</li>
+            <li>3 個月內影像證明無臟器轉移</li>
+            <li>非「ADT 後 &lt;12 月轉 CRPC 且 Gleason ≥8」</li>
+          </ul>
+        </div>
+
+        <div class="card success">
+          <strong>mCRPC docetaxel 後</strong>
+          <ul class="checklist" style="margin-top: 8px;">
+            <li>ECOG ≤2</li>
+            <li>docetaxel ≥2 療程且治療無效</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Accordion 2: 國際指引一覽 -->
+  <div class="accordion">
+    <div class="accordion__item">
+      <button class="accordion__header">
+        <span>🌍 2️⃣ 國際指引一覽（FDA / EMA / AUA / EAU / NCCN）</span>
+        <span class="accordion__icon">▾</span>
+      </button>
+      <div class="accordion__body">
+        <table>
+          <thead>
+            <tr>
+              <th>適應症</th>
+              <th>FDA</th>
+              <th>EMA</th>
+              <th>NCCN</th>
+              <th>EAU</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="background: #e8f5e9;">
+              <td><strong>High-risk BCR / nmCSPC</strong></td>
+              <td>✅ 2023 核准</td>
+              <td>✅ 核准（不適合救援性放療）</td>
+              <td>✅ Panel 支持</td>
+              <td>✅ <strong>Strong</strong></td>
+            </tr>
+            <tr>
+              <td><strong>mCSPC / mHSPC</strong></td>
+              <td>✅ 核准</td>
+              <td>✅ 核准</td>
+              <td>✅ <strong>Category 1</strong></td>
+              <td>✅ <strong>Strong</strong></td>
+            </tr>
+            <tr>
+              <td><strong>High-risk nmCRPC</strong></td>
+              <td>✅ 2018 核准</td>
+              <td>✅ 核准</td>
+              <td>✅ <strong>Category 1</strong>（since 2019）</td>
+              <td>✅ <strong>Strong</strong></td>
+            </tr>
+            <tr>
+              <td><strong>mCRPC 化療前</strong></td>
+              <td>✅ 涵蓋於 CRPC</td>
+              <td>✅ 核准</td>
+              <td>✅ 仍為選項</td>
+              <td>✅ 可用</td>
+            </tr>
+            <tr>
+              <td><strong>mCRPC docetaxel 後</strong></td>
+              <td>✅ 核准起始</td>
+              <td>✅ 核准</td>
+              <td>✅ 成熟場景</td>
+              <td>✅ 成熟場景</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="highlight" style="margin-top: 20px;">
+          <strong>⚠️ 重要提醒：</strong>
+          所有國際指引對 ARPI 序列切換都保持保留態度。若病人已用過 abiraterone / apalutamide / darolutamide，再換 ENZ 的證據與效果都較弱。國際指引傾向改用 cabazitaxel。
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Accordion 3: 關鍵試驗速查 -->
+  <div class="accordion">
+    <div class="accordion__item">
+      <button class="accordion__header">
+        <span>📊 3️⃣ 關鍵試驗數據速查</span>
+        <span class="accordion__icon">▾</span>
+      </button>
+      <div class="accordion__body">
+        <table>
+          <thead>
+            <tr>
+              <th>試驗</th>
+              <th>病人族群</th>
+              <th>關鍵結果（HR 或中位數）</th>
+              <th>臨床意義</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>AFFIRM</strong></td>
+              <td>mCRPC，docetaxel 後</td>
+              <td>OS HR <strong>0.63</strong>；OS 18.4 vs 13.6 月</td>
+              <td>post-chemo mCRPC 的核心證據</td>
+            </tr>
+            <tr>
+              <td><strong>PREVAIL</strong></td>
+              <td>mCRPC，化療前</td>
+              <td>rPFS HR <strong>0.19</strong>；OS HR <strong>0.71</strong></td>
+              <td>chemo-naïve mCRPC 的奠基試驗</td>
+            </tr>
+            <tr style="background: #e8f5e9;">
+              <td><strong>PROSPER</strong></td>
+              <td>High-risk nmCRPC</td>
+              <td>MFS HR <strong>0.29</strong>；36.6 vs 14.7 月</td>
+              <td>nmCRPC 最成熟的場景；最終 OS HR 0.73</td>
+            </tr>
+            <tr>
+              <td><strong>ARCHES</strong></td>
+              <td>mCSPC / mHSPC</td>
+              <td>rPFS HR <strong>0.39</strong>；OS HR <strong>0.66</strong></td>
+              <td>mCSPC 的強力證據；低體積患者同樣獲益</td>
+            </tr>
+            <tr>
+              <td><strong>ENZAMET</strong></td>
+              <td>mCSPC / mHSPC</td>
+              <td>OS 改善；5 年 OS <strong>67% vs 57%</strong></td>
+              <td>獨立驗證 mCSPC doublet 的效益</td>
+            </tr>
+            <tr style="background: #fff3cd;">
+              <td><strong>EMBARK</strong></td>
+              <td>High-risk BCR / nmCSPC</td>
+              <td>MFS HR <strong>0.42</strong>（ENZ+ADT）；OS HR <strong>0.60</strong>（8年）</td>
+              <td>BCR 場景的重大突破；最強 OS 訊號在 ENZ + ADT</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="highlight" style="margin-top: 20px;">
+          <strong>💡 EMBARK 特別提醒：</strong>
+          ENZ + leuprolide 的成熟 OS HR 0.60；ENZ 單藥對 leuprolide 的 OS 優勢尚未達統計顯著。所以若醫師重視生存訊號，通常會建議合併 ADT。
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Accordion 4: 自費情境與成本 -->
+  <div class="accordion">
+    <div class="accordion__item">
+      <button class="accordion__header">
+        <span>💰 4️⃣ 自費情境與成本參考</span>
+        <span class="accordion__icon">▾</span>
+      </button>
+      <div class="accordion__body">
+        <h4 style="margin-bottom: 12px;">台灣最常見的 4 個自費場景</h4>
+
+        <div class="card">
+          <strong>1️⃣ High-risk BCR / nmCSPC</strong>
+          <p style="margin-top: 8px; color: #666;">仿單可用、全球證據完整，但<strong>健保未給付</strong></p>
+          <ul class="checklist" style="margin-top: 8px;">
+            <li>PSADT ≤9 個月</li>
+            <li>不適合救援性放療</li>
+            <li>傳統影像 M0</li>
+          </ul>
+          <p style="margin-top: 12px; color: #0066cc; font-weight: 600;">💡 這是目前台灣最重要的 ENZ 自費場景</p>
+        </div>
+
+        <div class="card">
+          <strong>2️⃣ 不符高風險定義的 mCSPC</strong>
+          <p style="margin-top: 8px; color: #666;">符合 1 項高風險條件，國際指引支持強化，但台灣健保不付</p>
+          <ul class="checklist" style="margin-top: 8px;">
+            <li>例：Gleason ≥8 但骨轉移 <3 且無內臟轉移</li>
+            <li>國際指引（NCCN、EAU）仍支持 ARPI 強化</li>
+          </ul>
+        </div>
+
+        <div class="card warning">
+          <strong>3️⃣ 超過 mCSPC 健保 36 個月上限</strong>
+          <p style="margin-top: 8px; color: #666;">醫病雙方仍認為續治有價值，但卡到健保期限</p>
+        </div>
+
+        <div class="card warning">
+          <strong>4️⃣ 已用過其他新型荷爾蒙藥</strong>
+          <p style="margin-top: 8px; color: #666;">卡到「終生僅給付一種」限制，但醫師評估仍有轉益機會</p>
+          <p style="margin-top: 8px; color: #f59e0b; font-weight: 600;">⚠️ 序列 ARPI 的證據與效果都較弱；不建議常規推廣</p>
+        </div>
+
+        <h4 style="margin-top: 24px; margin-bottom: 12px;">成本參考（以健保支付價計算）</h4>
+
+        <table>
+          <thead>
+            <tr>
+              <th>藥品</th>
+              <th>健保支付價</th>
+              <th>月費用（160 mg/日）</th>
+              <th>3 個月費用</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>XTANDI 40 mg</strong>（品牌）</td>
+              <td>NT$435/顆</td>
+              <td><strong>NT$52,200</strong></td>
+              <td>NT$156,600</td>
+            </tr>
+            <tr style="background: #e8f5e9;">
+              <td><strong>Enzalutamide 40 mg</strong>（學名藥，2025/10 納入）</td>
+              <td>NT$347/顆</td>
+              <td><strong>NT$41,640</strong></td>
+              <td>NT$124,920</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="highlight" style="margin-top: 12px;">
+          <strong>📌 重要：</strong>
+          <ul style="margin-top: 8px; padding-left: 20px;">
+            <li>以上為藥費，<strong>不含</strong>門診、調劑、ADT 針劑、影像、抽血</li>
+            <li>實際自費零售價依醫院/藥局採購與加價而異，官方未統一公告</li>
+            <li>學名藥支付價自 2025/10/1 起生效，有助降低自費負擔</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Accordion 5: 臨床工具箱 -->
+  <div class="accordion">
+    <div class="accordion__item">
+      <button class="accordion__header">
+        <span>🛠️ 5️⃣ 診間臨床工具箱</span>
+        <span class="accordion__icon">▾</span>
+      </button>
+      <div class="accordion__body">
+        <h4 style="margin-bottom: 12px;">患者篩選清單（可列印）</h4>
+
+        <div style="background: #f9f9f9; padding: 16px; border-radius: 8px; border: 1px solid #e0e0e0; font-size: 14px; line-height: 1.8;">
+          <strong>病人情形快速檢視</strong><br/><br/>
+
+          <strong>A. 疾病階段</strong><br/>
+          ☐ High-risk nmCRPC<br/>
+          ☐ High-risk mCSPC<br/>
+          ☐ mCRPC 化療前<br/>
+          ☐ mCRPC post-docetaxel<br/>
+          ☐ High-risk BCR / nmCSPC（自費考量）<br/><br/>
+
+          <strong>B. 基本文件（所有病人）</strong><br/>
+          ☐ 病理報告 / Gleason score<br/>
+          ☐ ADT 或手術去勢紀錄<br/>
+          ☐ 序列 PSA 數據（≥3 點）<br/>
+          ☐ 序列 testosterone 數據<br/>
+          ☐ 近 3 個月影像（CT/MRI/bone scan）<br/><br/>
+
+          <strong>C. Stage-specific 條件</strong><br/>
+          高風險 nmCRPC：<br/>
+          ☐ ECOG ≤1  ☐ M0  ☐ PSADT ≤10 月<br/><br/>
+
+          高風險 mCSPC：<br/>
+          ☐ 與 ADT 併用  ☐ 高風險 2/3  ☐ 已評估 36 月上限<br/><br/>
+
+          mCRPC 化療前：<br/>
+          ☐ ECOG 0–1  ☐ 無常規止痛  ☐ 3 月內影像無臟器轉移<br/><br/>
+
+          mCRPC post-docetaxel：<br/>
+          ☐ ECOG ≤2  ☐ docetaxel ≥2 cycles<br/><br/>
+
+          <strong>D. 給付判斷</strong><br/>
+          ☐ 是否符合健保適應症<br/>
+          ☐ 文件是否完整<br/>
+          ☐ 是否須準備自費討論<br/><br/>
+
+          <button class="print-button" onclick="window.print();">🖨️ 列印此清單</button>
+        </div>
+
+        <h4 style="margin-top: 24px; margin-bottom: 12px;">健保再申請摘要模板</h4>
+
+        <div style="background: #f9f9f9; padding: 16px; border-radius: 8px; border: 1px solid #e0e0e0; font-size: 13px; line-height: 1.8;">
+          <strong>Enzalutamide 再申請摘要</strong><br/><br/>
+
+          病人姓名 / 病歷號：___________<br/>
+          適應症：___________<br/>
+          起始用藥日期：___________<br/>
+          本次申請療程：_____ 月<br/><br/>
+
+          <strong>1) 治療前基線</strong><br/>
+          PSA：____ ng/mL  |  Testosterone：____ ng/dL  |  ECOG：____<br/><br/>
+
+          <strong>2) 本次評估</strong><br/>
+          目前 PSA：____ ng/mL<br/>
+          與基線相比下降幅度：_____%<br/>
+          PSA nadir：____ ng/mL<br/>
+          是否出現 PSA progression：☐ 是  ☐ 否<br/>
+          若是，是否附影像：☐ 是  ☐ 否<br/>
+          影像是否顯示新轉移：☐ 是  ☐ 否<br/><br/>
+
+          <strong>3) 續用判斷</strong><br/>
+          nmCRPC：若 PSA progression，已附影像 / 若無，6 月影像補件時點<br/>
+          mCSPC / mCRPC：PSA 較治療前下降 >50%  ☐ 是  ☐ 否<br/>
+          仍符合健保條件：☐ 是  ☐ 否<br/><br/>
+
+          <strong>4) 其他</strong><br/>
+          不良反應：__________<br/>
+          曾使用其他新型荷爾蒙藥：__________<br/>
+          嚴重不耐受需換藥：☐ 是  ☐ 否<br/><br/>
+
+          <button class="print-button" onclick="window.print();">🖨️ 列印此模板</button>
+        </div>
+
+        <h4 style="margin-top: 24px; margin-bottom: 12px;">High-risk BCR 自費討論流程</h4>
+
+        <div class="card success">
+          <strong>第 1 步：確認是否「不適合救援性放療」</strong>
+          <p style="margin-top: 8px; font-size: 14px;">
+            與泌尿 / 腫瘤 / 放療 MDT 討論，因為 EMA label 強調的是「不適合救援性放療」，而非所有 BCR。
+          </p>
+        </div>
+
+        <div class="card success">
+          <strong>第 2 步：病人教育 — ENZ 單藥 vs ENZ + ADT</strong>
+          <ul style="margin-top: 8px; padding-left: 20px; font-size: 14px;">
+            <li><strong>單藥：</strong>減少 ADT 副作用，但成熟 OS 訊號不如合併</li>
+            <li><strong>合併 ADT：</strong>成熟 OS HR 0.60，是最強的生存訊號</li>
+            <li>建議：若病人能耐受 ADT，合併療法證據更充分</li>
+          </ul>
+        </div>
+
+        <div class="card success">
+          <strong>第 3 步：長期成本規劃 — Treatment Holiday 策略</strong>
+          <ul style="margin-top: 8px; padding-left: 20px; font-size: 14px;">
+            <li>若 36 週後 PSA 不可測（&lt;0.2 ng/mL），可暫停治療</li>
+            <li>之後 PSA 回升時重啟治療</li>
+            <li>對長期自費總成本可能有實質幫助</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Accordion 6: 快速連結與下載 -->
+  <div class="accordion">
+    <div class="accordion__item">
+      <button class="accordion__header">
+        <span>📥 6️⃣ 資源下載與快速連結</span>
+        <span class="accordion__icon">▾</span>
+      </button>
+      <div class="accordion__body">
+        <h4 style="margin-bottom: 12px;">快速進入診斷工具</h4>
+        <a href="diagnosis.html" style="display: inline-block; padding: 12px 24px; background: #0066cc; color: white; border-radius: 6px; text-decoration: none; font-weight: 600; margin-bottom: 20px;">
+          🔍 進入 30 秒快速診斷工具
+        </a>
+
+        <h4 style="margin-top: 20px; margin-bottom: 12px;">其他參考頁面</h4>
+        <ul style="padding-left: 20px; line-height: 2;">
+          <li><a href="drug-enzalutamide.html">🔬 Enzalutamide 藥物檔案 — 作用機轉、安全性</a></li>
+          <li><a href="pathway.html">🛣️ 治療路徑 — NCCN vs 台灣健保</a></li>
+          <li><a href="evidence.html">📚 臨床證據 — 完整試驗資訊</a></li>
+          <li><a href="faq.html">❓ 醫師 FAQ — 常見問題解答</a></li>
+        </ul>
+
+        <h4 style="margin-top: 24px; margin-bottom: 12px;">重要聲明</h4>
+        <div class="banner">
+          <strong>本頁面內容僅供醫療專業人員臨床參考，不構成處方建議。</strong>
+          <p style="margin-top: 8px; font-size: 13px;">
+            所有治療決策應基於個別患者情況與醫師專業判斷。台灣健保給付規定以現行正式文件為準；本頁基於 2026/6/4 公開資料整理。
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #e0e0e0; text-align: center; color: #666; font-size: 13px;">
+    <p>📚 PCa Evidence Hub — Enzalutamide 完整參考指南</p>
+    <p style="margin-top: 4px;">最後更新：2026/6/4</p>
+  </div>
+</div>
+
+<script>
+  // Accordion 互動
+  document.querySelectorAll('.accordion__header').forEach(header => {
+    header.addEventListener('click', () => {
+      const item = header.parentElement;
+      const isOpen = item.classList.contains('open');
+
+      // 關閉其他 item
+      document.querySelectorAll('.accordion__item').forEach(i => i.classList.remove('open'));
+
+      // 開啟或關閉當前 item
+      if (!isOpen) {
+        item.classList.add('open');
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
